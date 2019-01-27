@@ -60,6 +60,7 @@ bgfx::IndexBufferHandle m_cube_ibh;
 bgfx::ProgramHandle m_cube_program;
 
 void init_debug_cube() {
+  PosColorVertex::init();
   // Create static vertex buffer.
   m_cube_vbh = bgfx::createVertexBuffer(
     // Static data can be passed with bgfx::makeRef

@@ -19,7 +19,8 @@ BUFFER_RW(u_CulledSubdBuffer, uvec2, BUFFER_BINDING_CULLED_SUBD);
 
 void main()
 {
-    v_position = a_position.xyz;
+    // v_position = a_position.xyz;
+    v_position = vec3(a_position.x, 0, a_position.y);
     v_texcoord0 = a_texcoord0;
 
     gl_Position = mul(u_modelViewProj, vec4(v_position.xyz, 1.0));

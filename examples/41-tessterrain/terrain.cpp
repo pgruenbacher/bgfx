@@ -16,7 +16,7 @@
 
 #include "./terrain_definitions.h"
 #include "./terrain_extra.h"
-#include "./debug_cube.h"
+// #include "./debug_cube.h"
 namespace
 {
 
@@ -114,7 +114,7 @@ public:
 
 		m_width  = _width;
 		m_height = _height;
-		m_debug  = BGFX_DEBUG_TEXT;
+		m_debug  = BGFX_DEBUG_TEXT | BGFX_DEBUG_WIREFRAME;
 		m_reset  = BGFX_RESET_VSYNC;
 
 		bgfx::Init init;
@@ -142,7 +142,7 @@ public:
 
 		// Imgui.
 		initTerrain();
-		init_debug_cube();
+		// init_debug_cube();
 		imguiCreate();
 
 
@@ -213,10 +213,10 @@ public:
 	void initTerrain() {
 		// Create vertex stream declaration.
 		PosTexCoord0Vertex::init();
-		PosColorVertex::init();
 		Vec2::init();
 
 		loadInstancedGeometryBuffers();
+		initStaticVertexBuffer();
 		loadSubdivisionBuffers();
 		initIndirectBuffers();
 
@@ -228,7 +228,6 @@ public:
 		assert(m_indirectSupported);
 		if (!m_computeSupported) return;
 
-		initStaticVertexBuffer();
 
 		// Create tesselation program from shaders.
 		cs_lod_program = loadProgram("cs_terrain_lod", NULL);
@@ -267,7 +266,7 @@ public:
 		bgfx::setVertexBuffer(0, instanced_vbh);
 		bgfx::setIndexBuffer(instanced_ibh);
 		bgfx::submit(0, terrain_render_program);
-		std::cout << "Submit " << std::endl;
+		// std::cout << "Submit " << std::endl;
 
 		// bgfx::submit(0, terrain_render_program, m_drawIndirectBuffer);
 	}
@@ -291,9 +290,9 @@ public:
 		u_params = bgfx::createUniform("u_params", bgfx::UniformType::Vec4);
 		bgfx::setUniform(u_params, m_params);
 
-		// renderCompute();
+		renderCompute();
 		renderRender();
-		// renderIndirect();
+		renderIndirect();
 		m_terrain.flipPingPong();
 
 
@@ -386,28 +385,28 @@ void loadSmapTexture(const uint16_t* texels, int w = 4096, int h = 4096) {
 	}
 }
 
-
 void loadInstancedGeometryBuffers() {
-	   auto vertices = verticesL3;
-	   auto indexes = indexesL3;
+	   // auto vertices = verticesL3;
+	   // auto indexes = indexesL3;
 
 	   static_assert(instancedMeshVertexCount * sizeof(float[2]) == sizeof(verticesL3));
 	   static_assert(instancedMeshPrimitiveCount * 3 * sizeof(uint16_t) == sizeof(indexesL3));
-	   auto verticesMem = bgfx::makeRef(vertices, sizeof(vertices));
-	   auto indicesMem = bgfx::makeRef(vertices, sizeof(indexes));
+	   // auto verticesMem = bgfx::makeRef(vertices, sizeof(vertices));
+	   // auto indicesMem = bgfx::makeRef(vertices, sizeof(indexes));
 
 	   auto flags = BGFX_BUFFER_COMPUTE_READ_WRITE;
 
-	   std::cout << "? " << std::endl;
+	   // std::cout << "? " << std::endl;
 
 	   instanced_vbh = bgfx::createVertexBuffer(
-	   	verticesMem,
+	   	bgfx::makeRef(verticesL3, sizeof(verticesL3)),
 	   	Vec2::ms_decl, flags);
 
 	   instanced_ibh = bgfx::createIndexBuffer(
-	   	indicesMem, flags);
+	   	bgfx::makeRef(indexesL3, sizeof(indexesL3)),
+	   	flags);
 
-	   std::cout << "aa? " << std::endl;
+	   // std::cout << "aa? " << std::endl;
 	   // bgfx::update(instanced_ibh, 0, verticesMem);
 	   // bgfx::update(instanced_vbh, 0, indicesMem);
 }
@@ -522,7 +521,7 @@ void loadSubdivisionBuffers() {
 			bgfx::setTransform(m_terrain.m_transform);
 
 			updateTerrain();
-			render_debug_cube();
+			// render_debug_cube();
 			bgfx::touch(0);
 			bgfx::dbgTextClear();
 			bgfx::dbgTextPrintf(0, 1, 0x0f, "Color can be changed with ANSI \x1b[9;me\x1b[10;ms\x1b[11;mc\x1b[12;ma\x1b[13;mp\x1b[14;me\x1b[0m code too.");

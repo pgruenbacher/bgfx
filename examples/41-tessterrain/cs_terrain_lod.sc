@@ -33,6 +33,7 @@ BUFFER_RW(u_CulledSubdBuffer, uvec2, BUFFER_BINDING_CULLED_SUBD);
 // };
 BUFFER_RW(u_IndirectCommand, uint, BUFFER_BINDING_INDIRECT_COMMAND);
 
+//layout (binding = BUFFER_BINDING_SUBD_COUNTER, offset = 4)
 // layout(binding = BUFFER_BINDING_CULLED_SUBD_COUNTER)
 // uniform atomic_uint u_CulledSubdBufferCounter;
 BUFFER_RW(u_CulledSubdBufferCounter, uint, BUFFER_BINDING_CULLED_SUBD_COUNTER);
@@ -76,38 +77,40 @@ void main()
     vec4 v[3], vp[3]; subd(key, v_in, v, vp);
     int targetLod = int(computeLod(v));
     int parentLod = int(computeLod(vp));
-#if FLAG_FREEZE
-    targetLod = parentLod = findMSB(key);
-#endif
+// #if FLAG_FREEZE
+//     targetLod = parentLod = findMSB(key);
+// #endif
     updateSubdBuffer(primID, key, targetLod, parentLod);
 
-#if FLAG_CULL
-    // Cull invisible nodes
-    // mat4 mvp = u_Transform.modelViewProjection;
-    mat4 mvp = u_modelViewProj;
-    vec4 bmin = min(min(v[0], v[1]), v[2]);
-    vec4 bmax = max(max(v[0], v[1]), v[2]);
+// #if FLAG_CULL
+//     // Cull invisible nodes
+//     // mat4 mvp = u_Transform.modelViewProjection;
+//     mat4 mvp = u_modelViewProj;
+//     vec4 bmin = min(min(v[0], v[1]), v[2]);
+//     vec4 bmax = max(max(v[0], v[1]), v[2]);
 
-    // account for displacement in bound computations
-#   if FLAG_DISPLACE
-    bmin.z = 0;
-    bmax.z = u_DmapFactor;
-#   endif
+//     // account for displacement in bound computations
+// #   if FLAG_DISPLACE
+//     bmin.z = 0;
+//     bmax.z = u_DmapFactor;
+// #   endif
 
-    // update CulledSubdBuffer
-    if (/* is visible ? */frustumCullingTest(mvp, bmin.xyz, bmax.xyz)) {
-#else
-    if (true) {
-#endif // FLAG_CULL
+//     // update CulledSubdBuffer
+//     if (/* is visible ? */frustumCullingTest(mvp, bmin.xyz, bmax.xyz)) {
+// #else
+//     if (true) {
+// #endif // FLAG_CULL
         // write key
         //uint idx = atomicCounterIncrement(u_CulledSubdBufferCounter[1]);
 		// uint idx = atomicCounterIncrement(u_CulledSubdBufferCounter);
-        uint i = gl_GlobalInvocationID.x;
-        atomicAdd(u_CulledSubdBufferCounter[i], 1);
-        uint idx = u_CulledSubdBufferCounter[i];
+
+        // uint i = gl_GlobalInvocationID.x;
+        uint i = 4;
+        atomicAdd(u_CulledSubdBufferCounter[4], 1);
+        uint idx = u_CulledSubdBufferCounter[4];
 
         u_CulledSubdBuffer[idx] = uvec2(primID, key);
-    }
+    // }
 }
 // #endif
 

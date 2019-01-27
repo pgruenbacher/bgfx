@@ -22,7 +22,7 @@ bgfx::VertexDecl Vec2::ms_decl;
 const int instancedMeshVertexCount = 45;
 const int instancedMeshPrimitiveCount = 64;
 
-const Vec2 verticesL3[instancedMeshVertexCount] = {
+static const Vec2 verticesL3[instancedMeshVertexCount] = {
     { 0.25f*0.5f, 0.75f*0.5f + 0.5f },
     { 0.0f*0.5f, 1.0f*0.5f + 0.5f },
     { 0.0f*0.5f, 0.75f*0.5f + 0.5f },
@@ -77,7 +77,7 @@ const Vec2 verticesL3[instancedMeshVertexCount] = {
     { 1.0f, 0.0f }    //44
 };
 
-const uint16_t indexesL3[instancedMeshPrimitiveCount * 3] = {
+static const uint16_t indexesL3[instancedMeshPrimitiveCount * 3] = {
     0u, 1u, 2u,
     0u, 2u, 3u,
     0u, 3u, 4u,
