@@ -254,7 +254,8 @@ public:
 		bgfx::setBuffer(BUFFER_BINDING_GEOMETRY_VERTICES, m_vbh, bgfx::Access::Read);
 		bgfx::setBuffer(BUFFER_BINDING_GEOMETRY_INDEXES, m_ibh, bgfx::Access::Read);
 
-		bgfx::dispatch(0, cs_lod_program, m_dispatchIndirectBuffer);
+		// bgfx::dispatch(0, cs_lod_program, m_dispatchIndirectBuffer);
+		bgfx::dispatch(0, cs_lod_program, COMPUTE_THREAD_COUNT);
 	}
 
 	void renderRender() {
@@ -265,10 +266,10 @@ public:
 
 		bgfx::setVertexBuffer(0, instanced_vbh);
 		bgfx::setIndexBuffer(instanced_ibh);
-		bgfx::submit(0, terrain_render_program);
+		// bgfx::submit(0, terrain_render_program);
 		// std::cout << "Submit " << std::endl;
 
-		// bgfx::submit(0, terrain_render_program, m_drawIndirectBuffer);
+		bgfx::submit(0, terrain_render_program, m_drawIndirectBuffer, 0 /* start*/);
 	}
 
 	void renderIndirect() {
@@ -292,7 +293,7 @@ public:
 
 		renderCompute();
 		renderRender();
-		renderIndirect();
+		// renderIndirect();
 		m_terrain.flipPingPong();
 
 
