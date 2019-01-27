@@ -8,6 +8,9 @@
 
 #include <bx/bx.h>
 
+// added by paul
+#define BGFX_CONFIG_RENDERER_OPENGL 32
+
 #ifndef BGFX_CONFIG_DEBUG
 #	define BGFX_CONFIG_DEBUG 0
 #endif // BGFX_CONFIG_DEBUG

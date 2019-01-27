@@ -1,0 +1,1452 @@
+../../../src/bgfx.cpp (3256): BGFX bgfx platform data like window handle or backbuffer is not set, creating headless device.
+../../../src/bgfx.cpp (3287): BGFX Init...
+../../../src/bgfx.cpp (1745): BGFX Creating rendering thread.
+../../../src/bgfx_p.h (2815): BGFX render thread start
+../../../src/bgfx.cpp (1754): BGFX Running in multi-threaded mode
+../../../src/glcontext_glx.cpp (93): BGFX GLX extensions:
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_visual_info
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_visual_rating
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_import_context
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_SGIX_fbconfig
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_SGIX_pbuffer
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_SGI_video_sync
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_SGI_swap_control
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_swap_control
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_swap_control_tear
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_texture_from_pixmap
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_buffer_age
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_create_context
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_create_context_profile
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_create_context_es_profile
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_create_context_es2_profile
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_create_context_no_error
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_create_context_robustness
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_NV_delay_before_swap
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_stereo_tree
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_context_flush_control
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_NV_robustness_video_memory_purge
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_multisample
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_NV_float_buffer
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_fbconfig_float
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_EXT_framebuffer_sRGB
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_NV_copy_image
+../../../src/renderer_gl.cpp (1090): BGFX 	GLX_ARB_get_proc_address
+../../../src/glcontext_glx.cpp (116): BGFX glX num configs 30
+../../../src/glcontext_glx.cpp (123): BGFX ---
+../../../src/glcontext_glx.cpp (129): BGFX glX 0/30  3:    8,        8 (       8)
+../../../src/glcontext_glx.cpp (129): BGFX glX 0/30  4:    a,        8 (       8)
+../../../src/glcontext_glx.cpp (129): BGFX glX 0/30  5:    9,        8 (       8)
+../../../src/glcontext_glx.cpp (129): BGFX glX 0/30  6:    c,       18 (      18)
+../../../src/glcontext_glx.cpp (129): BGFX glX 0/30  7:    d,        8 (       8)
+../../../src/glcontext_glx.cpp (151): BGFX Best config 0.
+../../../src/glcontext_glx.cpp (163): BGFX Create GL 2.1 context.
+../../../src/glcontext_glx.cpp (172): BGFX Create GL 3.2 context.
+../../../src/glimports.h (230): BGFX 0x2ae5e780 glActiveTexture (glActiveTexture)
+../../../src/glimports.h (231): BGFX 0x2ae61900 glAttachShader (glAttachShader)
+../../../src/glimports.h (232): BGFX 0x2ae601c0 glBeginQuery (glBeginQuery)
+../../../src/glimports.h (233): BGFX 0x2ae5fe40 glBindBuffer (glBindBuffer)
+../../../src/glimports.h (234): BGFX 0x2ae62d00 glBindBufferBase (glBindBufferBase)
+../../../src/glimports.h (235): BGFX 0x2ae62cc0 glBindBufferRange (glBindBufferRange)
+../../../src/glimports.h (236): BGFX 0x2ae62b40 glBindFragDataLocation (glBindFragDataLocation)
+../../../src/glimports.h (237): BGFX 0x2ae63100 glBindFramebuffer (glBindFramebuffer)
+../../../src/glimports.h (238): BGFX 0x2ae66b40 glBindImageTexture (glBindImageTexture)
+../../../src/glimports.h (239): BGFX 0x2ae62f80 glBindRenderbuffer (glBindRenderbuffer)
+../../../src/glimports.h (240): BGFX 0x2ae64300 glBindSampler (glBindSampler)
+../../../src/glimports.h (241): BGFX 0x2ae5d6c0 glBindTexture (glBindTexture)
+../../../src/glimports.h (242): BGFX 0x2ae63400 glBindVertexArray (glBindVertexArray)
+../../../src/glimports.h (243): BGFX 0x2ae5de00 glBlendColor (glBlendColor)
+../../../src/glimports.h (244): BGFX 0x2ae5de40 glBlendEquation (glBlendEquation)
+../../../src/glimports.h (245): BGFX 0x2ae64740 glBlendEquationi (glBlendEquationi)
+../../../src/glimports.h (246): BGFX 0x2ae62380 glBlendEquationSeparate (glBlendEquationSeparate)
+../../../src/glimports.h (247): BGFX 0x2ae64780 glBlendEquationSeparatei (glBlendEquationSeparatei)
+../../../src/glimports.h (248): BGFX 0x2ae5c260 glBlendFunc (glBlendFunc)
+../../../src/glimports.h (249): BGFX 0x2ae647c0 glBlendFunci (glBlendFunci)
+../../../src/glimports.h (250): BGFX 0x2ae5f800 glBlendFuncSeparate (glBlendFuncSeparate)
+../../../src/glimports.h (251): BGFX 0x2ae64800 glBlendFuncSeparatei (glBlendFuncSeparatei)
+../../../src/glimports.h (252): BGFX 0x2ae62f00 glBlitFramebuffer (glBlitFramebuffer)
+../../../src/glimports.h (253): BGFX 0x2ae5fe80 glBufferData (glBufferData)
+../../../src/glimports.h (254): BGFX 0x2ae5fec0 glBufferSubData (glBufferSubData)
+../../../src/glimports.h (255): BGFX 0x2ae631c0 glCheckFramebufferStatus (glCheckFramebufferStatus)
+../../../src/glimports.h (256): BGFX 0x2ae5b8e0 glClear (glClear)
+../../../src/glimports.h (257): BGFX 0x2ae63940 glClearBufferfv (glClearBufferfv)
+../../../src/glimports.h (258): BGFX 0x2ae5b9a0 glClearColor (glClearColor)
+../../../src/glimports.h (259): BGFX 0x2ae5b9e0 glClearStencil (glClearStencil)
+../../../src/glimports.h (260): BGFX 0x2ae67940 glClipControl (glClipControl)
+../../../src/glimports.h (261): BGFX 0x2ae5baa0 glColorMask (glColorMask)
+../../../src/glimports.h (262): BGFX 0x2ae61880 glCompileShader (glCompileShader)
+../../../src/glimports.h (263): BGFX 0x2ae5f140 glCompressedTexImage2D (glCompressedTexImage2D)
+../../../src/glimports.h (264): BGFX 0x2ae5f200 glCompressedTexSubImage2D (glCompressedTexSubImage2D)
+../../../src/glimports.h (265): BGFX 0x2ae5f100 glCompressedTexImage3D (glCompressedTexImage3D)
+../../../src/glimports.h (266): BGFX 0x2ae5f1c0 glCompressedTexSubImage3D (glCompressedTexSubImage3D)
+../../../src/glimports.h (267): BGFX 0x2ae66c40 glCopyImageSubData (glCopyImageSubData)
+../../../src/glimports.h (268): BGFX 0x2ae618c0 glCreateProgram (glCreateProgram)
+../../../src/glimports.h (269): BGFX 0x2ae61800 glCreateShader (glCreateShader)
+../../../src/glimports.h (270): BGFX 0x2ae5ac20 glCullFace (glCullFace)
+../../../src/glimports.h (271): BGFX 0x2ae67180 glDebugMessageControl (glDebugMessageControl)
+../../../src/glimports.h (272): BGFX 0x2ae671c0 glDebugMessageInsert (glDebugMessageInsert)
+../../../src/glimports.h (273): BGFX 0x2ae67200 glDebugMessageCallback (glDebugMessageCallback)
+../../../src/glimports.h (274): BGFX 0x2ae5ff00 glDeleteBuffers (glDeleteBuffers)
+../../../src/glimports.h (275): BGFX 0x2ae63140 glDeleteFramebuffers (glDeleteFramebuffers)
+../../../src/glimports.h (276): BGFX 0x2ae619c0 glDeleteProgram (glDeleteProgram)
+../../../src/glimports.h (277): BGFX 0x2ae60140 glDeleteQueries (glDeleteQueries)
+../../../src/glimports.h (278): BGFX 0x2ae62fc0 glDeleteRenderbuffers (glDeleteRenderbuffers)
+../../../src/glimports.h (279): BGFX 0x2ae64280 glDeleteSamplers (glDeleteSamplers)
+../../../src/glimports.h (280): BGFX 0x2ae61780 glDeleteShader (glDeleteShader)
+../../../src/glimports.h (281): BGFX 0x2ae5dbc0 glDeleteTextures (glDeleteTextures)
+../../../src/glimports.h (282): BGFX 0x2ae63440 glDeleteVertexArrays (glDeleteVertexArrays)
+../../../src/glimports.h (283): BGFX 0x2ae5c360 glDepthFunc (glDepthFunc)
+../../../src/glimports.h (284): BGFX 0x2ae5bae0 glDepthMask (glDepthMask)
+../../../src/glimports.h (285): BGFX 0x2ae617c0 glDetachShader (glDetachShader)
+../../../src/glimports.h (286): BGFX 0x2ae5bba0 glDisable (glDisable)
+../../../src/glimports.h (287): BGFX 0x2ae62e80 glDisablei (glDisablei)
+../../../src/glimports.h (288): BGFX 0x2ae60cc0 glDisableVertexAttribArray (glDisableVertexAttribArray)
+../../../src/glimports.h (289): BGFX 0x2ae66d40 glDispatchCompute (glDispatchCompute)
+../../../src/glimports.h (290): BGFX 0x2ae66d80 glDispatchComputeIndirect (glDispatchComputeIndirect)
+../../../src/glimports.h (291): BGFX 0x2ae5d780 glDrawArrays (glDrawArrays)
+../../../src/glimports.h (292): BGFX 0x2ae64840 glDrawArraysIndirect (glDrawArraysIndirect)
+../../../src/glimports.h (293): BGFX 0x2ae63cc0 glDrawArraysInstanced (glDrawArraysInstanced)
+../../../src/glimports.h (294): BGFX 0x2ae5b8a0 glDrawBuffer (glDrawBuffer)
+../../../src/glimports.h (295): BGFX 0x2ae60300 glDrawBuffers (glDrawBuffers)
+../../../src/glimports.h (296): BGFX 0x2ae5d7c0 glDrawElements (glDrawElements)
+../../../src/glimports.h (297): BGFX 0x2ae64880 glDrawElementsIndirect (glDrawElementsIndirect)
+../../../src/glimports.h (298): BGFX 0x2ae63d00 glDrawElementsInstanced (glDrawElementsInstanced)
+../../../src/glimports.h (299): BGFX 0x2ae5bbe0 glEnable (glEnable)
+../../../src/glimports.h (300): BGFX 0x2ae62e40 glEnablei (glEnablei)
+../../../src/glimports.h (301): BGFX 0x2ae60c80 glEnableVertexAttribArray (glEnableVertexAttribArray)
+../../../src/glimports.h (302): BGFX 0x2ae60200 glEndQuery (glEndQuery)
+../../../src/glimports.h (303): BGFX 0x2ae5bc20 glFinish (glFinish)
+../../../src/glimports.h (304): BGFX 0x2ae5bc60 glFlush (glFlush)
+../../../src/glimports.h (305): BGFX 0x2ae632c0 glFramebufferRenderbuffer (glFramebufferRenderbuffer)
+../../../src/glimports.h (306): BGFX 0x2ae63240 glFramebufferTexture2D (glFramebufferTexture2D)
+../../../src/glimports.h (307): BGFX 0x2ae63340 glFramebufferTextureLayer (glFramebufferTextureLayer)
+../../../src/glimports.h (308): BGFX 0x2ae5ad60 glFrontFace (glFrontFace)
+../../../src/glimports.h (309): BGFX 0x2ae5ff40 glGenBuffers (glGenBuffers)
+../../../src/glimports.h (310): BGFX 0x2ae63380 glGenerateMipmap (glGenerateMipmap)
+../../../src/glimports.h (311): BGFX 0x2ae63180 glGenFramebuffers (glGenFramebuffers)
+../../../src/glimports.h (312): BGFX 0x2ae63000 glGenRenderbuffers (glGenRenderbuffers)
+../../../src/glimports.h (313): BGFX 0x2ae60100 glGenQueries (glGenQueries)
+../../../src/glimports.h (314): BGFX 0x2ae64240 glGenSamplers (glGenSamplers)
+../../../src/glimports.h (315): BGFX 0x2ae5dc00 glGenTextures (glGenTextures)
+../../../src/glimports.h (316): BGFX 0x2ae63480 glGenVertexArrays (glGenVertexArrays)
+../../../src/glimports.h (317): BGFX 0x2ae62240 glGetActiveAttrib (glGetActiveAttrib)
+../../../src/glimports.h (318): BGFX 0x2ae62280 glGetAttribLocation (glGetAttribLocation)
+../../../src/glimports.h (319): BGFX 0x2ae62100 glGetActiveUniform (glGetActiveUniform)
+../../../src/glimports.h (320): BGFX 0x2ae5f280 glGetCompressedTexImage (glGetCompressedTexImage)
+../../../src/glimports.h (321): BGFX 0x2ae67240 glGetDebugMessageLog (glGetDebugMessageLog)
+../../../src/glimports.h (322): BGFX 0x2ae5c760 glGetError (glGetError)
+../../../src/glimports.h (323): BGFX 0x2ae5c7a0 glGetFloatv (glGetFloatv)
+../../../src/glimports.h (324): BGFX 0x2ae5c7e0 glGetIntegerv (glGetIntegerv)
+../../../src/glimports.h (325): BGFX 0x2ae66bc0 glGetInternalformativ (glGetInternalformativ)
+../../../src/glimports.h (326): BGFX 0x2ae674c0 glGetInternalformati64v (glGetInternalformati64v)
+../../../src/glimports.h (327): BGFX 0x2ae67100 glGetObjectLabel (glGetObjectLabel)
+../../../src/glimports.h (328): BGFX 0x2ae67140 glGetObjectPtrLabel (glGetObjectPtrLabel)
+../../../src/glimports.h (329): BGFX 0x2ae5dc40 glGetPointerv (glGetPointerv)
+../../../src/glimports.h (330): BGFX 0x2ae65680 glGetProgramBinary (glGetProgramBinary)
+../../../src/glimports.h (331): BGFX 0x2ae61fc0 glGetProgramiv (glGetProgramiv)
+../../../src/glimports.h (332): BGFX 0x2ae62080 glGetProgramInfoLog (glGetProgramInfoLog)
+../../../src/glimports.h (333): BGFX 0x2ae67280 glGetProgramInterfaceiv (glGetProgramInterfaceiv)
+../../../src/glimports.h (334): BGFX 0x2ae672c0 glGetProgramResourceIndex (glGetProgramResourceIndex)
+../../../src/glimports.h (335): BGFX 0x2ae67340 glGetProgramResourceiv (glGetProgramResourceiv)
+../../../src/glimports.h (336): BGFX 0x2ae67300 glGetProgramResourceName (glGetProgramResourceName)
+../../../src/glimports.h (337): BGFX 0x2ae67380 glGetProgramResourceLocation (glGetProgramResourceLocation)
+../../../src/glimports.h (338): BGFX 0x2ae673c0 glGetProgramResourceLocationIndex (glGetProgramResourceLocationIndex)
+../../../src/glimports.h (339): BGFX 0x2ae5cc60 glGetTexImage (glGetTexImage)
+../../../src/glimports.h (340): BGFX 0x2ae602c0 glGetQueryiv (glGetQueryiv)
+../../../src/glimports.h (341): BGFX 0x2ae60240 glGetQueryObjectiv (glGetQueryObjectiv)
+../../../src/glimports.h (342): BGFX 0x2ae64640 glGetQueryObjecti64v (glGetQueryObjecti64v)
+../../../src/glimports.h (343): BGFX 0x2ae60280 glGetQueryObjectuiv (glGetQueryObjectuiv)
+../../../src/glimports.h (344): BGFX 0x2ae64680 glGetQueryObjectui64v (glGetQueryObjectui64v)
+../../../src/glimports.h (345): BGFX 0x2ae61f80 glGetShaderiv (glGetShaderiv)
+../../../src/glimports.h (346): BGFX 0x2ae62040 glGetShaderInfoLog (glGetShaderInfoLog)
+../../../src/glimports.h (347): BGFX 0x2ae5cae0 glGetString (glGetString)
+../../../src/glimports.h (348): BGFX 0x2ae620c0 glGetUniformLocation (glGetUniformLocation)
+../../../src/glimports.h (351): BGFX 0x2ae62ec0 glGetStringi (glGetStringi)
+../../../src/glimports.h (352): BGFX 0x2ae66f80 glInvalidateFramebuffer (glInvalidateFramebuffer)
+../../../src/glimports.h (360): BGFX 0x2ae61940 glLinkProgram (glLinkProgram)
+../../../src/glimports.h (361): BGFX 0x2ae66b80 glMemoryBarrier (glMemoryBarrier)
+../../../src/glimports.h (362): BGFX 0x2ae66cc0 glMultiDrawArraysIndirect (glMultiDrawArraysIndirect)
+../../../src/glimports.h (363): BGFX 0x2ae66d00 glMultiDrawElementsIndirect (glMultiDrawElementsIndirect)
+../../../src/glimports.h (364): BGFX 0x2ae67080 glObjectLabel (glObjectLabel)
+../../../src/glimports.h (365): BGFX 0x2ae670c0 glObjectPtrLabel (glObjectPtrLabel)
+../../../src/glimports.h (366): BGFX 0x2ae5c4a0 glPixelStorei (glPixelStorei)
+../../../src/glimports.h (367): BGFX 0x2ae67040 glPopDebugGroup (glPopDebugGroup)
+../../../src/glimports.h (368): BGFX 0x2ae656c0 glProgramBinary (glProgramBinary)
+../../../src/glimports.h (369): BGFX 0x2ae65700 glProgramParameteri (glProgramParameteri)
+../../../src/glimports.h (370): BGFX 0x2ae67000 glPushDebugGroup (glPushDebugGroup)
+../../../src/glimports.h (371): BGFX 0x2ae646c0 glQueryCounter (glQueryCounter)
+../../../src/glimports.h (372): BGFX 0x2ae5c5a0 glReadBuffer (glReadBuffer)
+../../../src/glimports.h (373): BGFX 0x2ae5c620 glReadPixels (glReadPixels)
+../../../src/glimports.h (374): BGFX 0x2ae633c0 glRenderbufferStorage (glRenderbufferStorage)
+../../../src/glimports.h (375): BGFX 0x2ae63040 glRenderbufferStorageMultisample (glRenderbufferStorageMultisample)
+../../../src/glimports.h (376): BGFX 0x2ae641c0 glSampleMaski (glSampleMaski)
+../../../src/glimports.h (377): BGFX 0x2ae64340 glSamplerParameteri (glSamplerParameteri)
+../../../src/glimports.h (378): BGFX 0x2ae64380 glSamplerParameterf (glSamplerParameterf)
+../../../src/glimports.h (379): BGFX 0x2ae64400 glSamplerParameterfv (glSamplerParameterfv)
+../../../src/glimports.h (380): BGFX 0x2ae5b220 glScissor (glScissor)
+../../../src/glimports.h (381): BGFX 0x2ae61840 glShaderSource (glShaderSource)
+../../../src/glimports.h (382): BGFX 0x2ae5c2e0 glStencilFunc (glStencilFunc)
+../../../src/glimports.h (383): BGFX 0x2ae622c0 glStencilFuncSeparate (glStencilFuncSeparate)
+../../../src/glimports.h (384): BGFX 0x2ae5ba60 glStencilMask (glStencilMask)
+../../../src/glimports.h (385): BGFX 0x2ae62340 glStencilMaskSeparate (glStencilMaskSeparate)
+../../../src/glimports.h (386): BGFX 0x2ae5c320 glStencilOp (glStencilOp)
+../../../src/glimports.h (387): BGFX 0x2ae62300 glStencilOpSeparate (glStencilOpSeparate)
+../../../src/glimports.h (388): BGFX 0x2ae5b3e0 glTexImage2D (glTexImage2D)
+../../../src/glimports.h (389): BGFX 0x2ae5e6c0 glTexImage3D (glTexImage3D)
+../../../src/glimports.h (390): BGFX 0x2ae5b320 glTexParameteri (glTexParameteri)
+../../../src/glimports.h (391): BGFX 0x2ae5b360 glTexParameteriv (glTexParameteriv)
+../../../src/glimports.h (392): BGFX 0x2ae5b2a0 glTexParameterf (glTexParameterf)
+../../../src/glimports.h (393): BGFX 0x2ae5b2e0 glTexParameterfv (glTexParameterfv)
+../../../src/glimports.h (394): BGFX 0x2ae66ac0 glTexStorage2D (glTexStorage2D)
+../../../src/glimports.h (395): BGFX 0x2ae66b00 glTexStorage3D (glTexStorage3D)
+../../../src/glimports.h (396): BGFX 0x2ae5dd40 glTexSubImage2D (glTexSubImage2D)
+../../../src/glimports.h (397): BGFX 0x2ae5e700 glTexSubImage3D (glTexSubImage3D)
+../../../src/glimports.h (398): BGFX 0x2ae61b40 glUniform1i (glUniform1i)
+../../../src/glimports.h (399): BGFX 0x2ae61d40 glUniform1iv (glUniform1iv)
+../../../src/glimports.h (400): BGFX 0x2ae61a40 glUniform1f (glUniform1f)
+../../../src/glimports.h (401): BGFX 0x2ae61c40 glUniform1fv (glUniform1fv)
+../../../src/glimports.h (402): BGFX 0x2ae61c80 glUniform2fv (glUniform2fv)
+../../../src/glimports.h (403): BGFX 0x2ae61cc0 glUniform3fv (glUniform3fv)
+../../../src/glimports.h (404): BGFX 0x2ae61d00 glUniform4fv (glUniform4fv)
+../../../src/glimports.h (405): BGFX 0x2ae61e80 glUniformMatrix3fv (glUniformMatrix3fv)
+../../../src/glimports.h (406): BGFX 0x2ae61ec0 glUniformMatrix4fv (glUniformMatrix4fv)
+../../../src/glimports.h (407): BGFX 0x2ae61980 glUseProgram (glUseProgram)
+../../../src/glimports.h (408): BGFX 0x2ae64700 glVertexAttribDivisor (glVertexAttribDivisor)
+../../../src/glimports.h (409): BGFX 0x2ae60c40 glVertexAttribPointer (glVertexAttribPointer)
+../../../src/glimports.h (410): BGFX 0x2ae62a40 glVertexAttribIPointer (glVertexAttribIPointer)
+../../../src/glimports.h (411): BGFX 0x2ae603c0 glVertexAttrib1f (glVertexAttrib1f)
+../../../src/glimports.h (412): BGFX 0x2ae60540 glVertexAttrib2f (glVertexAttrib2f)
+../../../src/glimports.h (413): BGFX 0x2ae606c0 glVertexAttrib3f (glVertexAttrib3f)
+../../../src/glimports.h (414): BGFX 0x2ae60a40 glVertexAttrib4f (glVertexAttrib4f)
+../../../src/glimports.h (415): BGFX 0x2ae5d260 glViewport (glViewport)
+../../../src/glimports.h (418): BGFX 0x2ae5ba20 glClearDepth (glClearDepth)
+../../../src/glimports.h (419): BGFX 0x2ae5b160 glPointSize (glPointSize)
+../../../src/glimports.h (420): BGFX 0x2ae5b1a0 glPolygonMode (glPolygonMode)
+../../../src/glimports.h (463): BGFX 0x2ae64100 glTexImage2DMultisample (glTexImage2DMultisample)
+../../../src/glimports.h (464): BGFX 0x2ae64140 glTexImage3DMultisample (glTexImage3DMultisample)
+../../../src/glimports.h (470): BGFX 0x0 glInsertEventMarker (glInsertEventMarker)
+../../../src/glimports.h (471): BGFX 0x0 glPushGroupMarker (glPushGroupMarker)
+../../../src/glimports.h (472): BGFX 0x0 glPopGroupMarker (glPopGroupMarker)
+../../../src/glimports.h (479): BGFX 0x0 glStringMarkerGREMEDY (glStringMarkerGREMEDY)
+../../../src/glimports.h (480): BGFX 0x0 glFrameTerminatorGREMEDY (glFrameTerminatorGREMEDY)
+../../../src/glimports.h (481): BGFX 0x0 glGetTranslatedShaderSourceANGLE (glGetTranslatedShaderSourceANGLE)
+../../../src/glcontext_glx.cpp (206): BGFX Using glXSwapIntervalEXT.
+../../../src/renderer_gl.cpp (1793): BGFX GL_NUM_COMPRESSED_TEXTURE_FORMATS 51
+../../../src/renderer_gl.cpp (1816): BGFX     0:     83f0 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     1:     83f2 BC2
+../../../src/renderer_gl.cpp (1816): BGFX     2:     83f3 BC3
+../../../src/renderer_gl.cpp (1816): BGFX     3:     8b90 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     4:     8b91 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     5:     8b92 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     6:     8b93 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     7:     8b94 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     8:     8b95 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX     9:     8b96 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    10:     8b97 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    11:     8b98 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    12:     8b99 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    13:     9274 ETC2
+../../../src/renderer_gl.cpp (1816): BGFX    14:     9275 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    15:     9276 ETC2A1
+../../../src/renderer_gl.cpp (1816): BGFX    16:     9277 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    17:     9278 ETC2A
+../../../src/renderer_gl.cpp (1816): BGFX    18:     9279 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    19:     9270 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    20:     9271 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    21:     9272 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    22:     9273 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    23:     93b0 ASTC4x4
+../../../src/renderer_gl.cpp (1816): BGFX    24:     93b1 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    25:     93b2 ASTC5x5
+../../../src/renderer_gl.cpp (1816): BGFX    26:     93b3 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    27:     93b4 ASTC6x6
+../../../src/renderer_gl.cpp (1816): BGFX    28:     93b5 ASTC8x5
+../../../src/renderer_gl.cpp (1816): BGFX    29:     93b6 ASTC8x6
+../../../src/renderer_gl.cpp (1816): BGFX    30:     93b7 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    31:     93b8 ASTC10x5
+../../../src/renderer_gl.cpp (1816): BGFX    32:     93b9 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    33:     93ba <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    34:     93bb <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    35:     93bc <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    36:     93bd <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    37:     93d0 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    38:     93d1 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    39:     93d2 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    40:     93d3 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    41:     93d4 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    42:     93d5 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    43:     93d6 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    44:     93d7 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    45:     93d8 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    46:     93d9 <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    47:     93da <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    48:     93db <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    49:     93dc <unknown>
+../../../src/renderer_gl.cpp (1816): BGFX    50:     93dd <unknown>
+../../../src/renderer_gl.cpp (1823): BGFX Defaults:
+../../../src/renderer_gl.cpp (1829): BGFX   GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 4096 (min: 64)
+../../../src/renderer_gl.cpp (1830): BGFX   GL_MAX_VERTEX_UNIFORM_COMPONENTS 4096 (min: 512)
+../../../src/renderer_gl.cpp (1831): BGFX   GL_MAX_VARYING_FLOATS 124 (min: 32)
+../../../src/renderer_gl.cpp (1833): BGFX   GL_MAX_VERTEX_ATTRIBS 16 (min: 8)
+../../../src/renderer_gl.cpp (1834): BGFX   GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 192 (min: 8)
+../../../src/renderer_gl.cpp (1835): BGFX   GL_MAX_CUBE_MAP_TEXTURE_SIZE 32768 (min: 16)
+../../../src/renderer_gl.cpp (1836): BGFX   GL_MAX_TEXTURE_IMAGE_UNITS 32 (min: 8)
+../../../src/renderer_gl.cpp (1837): BGFX   GL_MAX_TEXTURE_SIZE 32768 (min: 64)
+../../../src/renderer_gl.cpp (1838): BGFX   GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32 (min: 0)
+../../../src/renderer_gl.cpp (1839): BGFX   GL_MAX_RENDERBUFFER_SIZE 32768 (min: 1)
+../../../src/renderer_gl.cpp (1840): BGFX   GL_MAX_COLOR_ATTACHMENTS 8 (min: 1)
+../../../src/renderer_gl.cpp (1841): BGFX   GL_MAX_DRAW_BUFFERS 8 (min: 1)
+../../../src/renderer_gl.cpp (1844): BGFX       Vendor: NVIDIA Corporation
+../../../src/renderer_gl.cpp (1845): BGFX     Renderer: GeForce GTX 1080/PCIe/SSE2
+../../../src/renderer_gl.cpp (1846): BGFX      Version: 3.2.0 NVIDIA 396.24.02
+../../../src/renderer_gl.cpp (1847): BGFX GLSL version: 1.50 NVIDIA via Cg compiler
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_AMD_multi_draw_indirect
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_AMD_seamless_cubemap_per_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_AMD_vertex_shader_viewport_index
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_AMD_vertex_shader_layer
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_arrays_of_arrays
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_base_instance
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_bindless_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_blend_func_extended
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_buffer_storage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_clear_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_clear_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_clip_control
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_color_buffer_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_compressed_texture_pixel_storage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_conservative_depth
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_compute_shader
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_compute_variable_group_size
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_conditional_render_inverted
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_copy_buffer
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_copy_image
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_cull_distance
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_debug_output
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_depth_buffer_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_depth_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_depth_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_derivative_control
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_direct_state_access
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_draw_buffers
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_draw_buffers_blend
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_draw_indirect
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_draw_elements_base_vertex
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_draw_instanced
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_enhanced_layouts
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_ES2_compatibility
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_ES3_compatibility
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_ES3_1_compatibility
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_ES3_2_compatibility
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_explicit_attrib_location
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_explicit_uniform_location
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_fragment_coord_conventions
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_fragment_layer_viewport
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_fragment_program
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_fragment_program_shadow
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_fragment_shader
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_fragment_shader_interlock
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_framebuffer_no_attachments
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_framebuffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_framebuffer_sRGB
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_geometry_shader4
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_get_program_binary
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_get_texture_sub_image
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_gl_spirv
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_gpu_shader5
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_gpu_shader_fp64
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_gpu_shader_int64
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_half_float_pixel
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_half_float_vertex
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_imaging
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_indirect_parameters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_instanced_arrays
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_internalformat_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_internalformat_query2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_invalidate_subdata
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_map_buffer_alignment
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_map_buffer_range
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_multi_bind
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_multi_draw_indirect
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_multitexture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_occlusion_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_occlusion_query2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_parallel_shader_compile
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_pipeline_statistics_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_pixel_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_point_parameters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_point_sprite
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_polygon_offset_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_post_depth_coverage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_program_interface_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_provoking_vertex
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_query_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_robust_buffer_access_behavior
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_robustness
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sample_locations
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sample_shading
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_sampler_objects
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_seamless_cube_map
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_seamless_cubemap_per_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_separate_shader_objects
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_atomic_counter_ops
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_atomic_counters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_ballot
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_shader_bit_encoding
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_clock
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_draw_parameters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_group_vote
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_shader_image_load_store
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_image_size
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_objects
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_precision
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_shader_storage_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_subroutine
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_texture_image_samples
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_texture_lod
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shading_language_100
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shader_viewport_layer_array
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shading_language_420pack
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shading_language_include
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shading_language_packing
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_shadow
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sparse_buffer
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sparse_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sparse_texture2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sparse_texture_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_spirv_extensions
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_stencil_texturing
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_sync
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_tessellation_shader
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_barrier
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_border_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_buffer_object_rgb32
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_buffer_range
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_compression
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_texture_compression_bptc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_compression_rgtc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_cube_map
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_texture_cube_map_array
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_env_add
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_env_combine
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_env_crossbar
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_env_dot3
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_filter_anisotropic
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_filter_minmax
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_gather
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_mirror_clamp_to_edge
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_mirrored_repeat
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_non_power_of_two
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_query_levels
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_query_lod
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_rectangle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_rg
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_texture_rgb10_a2ui
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_texture_stencil8
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_texture_storage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_storage_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_texture_swizzle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_texture_view
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_timer_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_transform_feedback2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_transform_feedback3
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_transform_feedback_instanced
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_transform_feedback_overflow_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_transpose_matrix
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_uniform_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_array_bgra
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_array_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_attrib_64bit
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_attrib_binding
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_program
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_shader
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_vertex_type_10f_11f_11f_rev
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_ARB_vertex_type_2_10_10_10_rev
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_viewport_array
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ARB_window_pos
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ATI_draw_buffers
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ATI_texture_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_ATI_texture_mirror_once
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_S3_s3tc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_env_add
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_abgr
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_bgra
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_bindable_uniform
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_blend_color
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_blend_equation_separate
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_blend_func_separate
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_blend_minmax
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_blend_subtract
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_compiled_vertex_array
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_Cg_shader
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_depth_bounds_test
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_direct_state_access
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_draw_buffers2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_draw_instanced
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_draw_range_elements
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_fog_coord
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_framebuffer_blit
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_framebuffer_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXTX_framebuffer_mixed_formats
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_framebuffer_multisample_blit_scaled
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_framebuffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_framebuffer_sRGB
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_geometry_shader4
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_gpu_program_parameters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_gpu_shader4
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_multi_draw_arrays
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_packed_depth_stencil
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_packed_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_packed_pixels
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_pixel_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_point_parameters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_polygon_offset_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_post_depth_coverage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_provoking_vertex
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_raster_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_rescale_normal
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_secondary_color
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_separate_shader_objects
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_separate_specular_color
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_shader_image_load_formatted
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_shader_image_load_store
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_shader_integer_mix
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_shadow_funcs
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_sparse_texture2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_stencil_two_side
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_stencil_wrap
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture3D
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_array
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_compression_dxt1
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_compression_latc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_compression_rgtc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_compression_s3tc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_cube_map
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_edge_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_env_combine
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_env_dot3
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_filter_anisotropic
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_filter_minmax
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_integer
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_lod
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_lod_bias
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_mirror_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_shared_exponent
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_sRGB
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_texture_sRGB_decode
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_storage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_texture_swizzle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_EXT_timer_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_transform_feedback2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_vertex_array
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_vertex_array_bgra
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_vertex_attrib_64bit
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_window_rectangles
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_x11_sync_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_import_sync_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_robustness_video_memory_purge
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_IBM_rasterpos_clip
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_IBM_texture_mirrored_repeat
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KHR_context_flush_control
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_KHR_debug
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_memory_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_memory_object_fd
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KHR_parallel_shader_compile
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_KHR_no_error
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KHR_robust_buffer_access_behavior
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KHR_robustness
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_semaphore
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_EXT_semaphore_fd
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KTX_buffer_region
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_alpha_to_coverage_dither_control
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_bindless_multi_draw_indirect
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_bindless_multi_draw_indirect_count
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_bindless_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_blend_equation_advanced
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_blend_equation_advanced_coherent
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NVX_blend_equation_advanced_multi_draw_buffers
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_blend_minmax_factor
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_blend_square
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_clip_space_w_scaling
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_command_list
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_compute_program5
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_conditional_render
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_NV_conservative_raster
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_conservative_raster_dilate
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_conservative_raster_pre_snap_triangles
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_copy_depth_to_color
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_NV_copy_image
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_depth_buffer_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_depth_clamp
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_draw_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_draw_vulkan_image
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_ES1_1_compatibility
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_ES3_1_compatibility
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_explicit_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_feature_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fence
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fill_rectangle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_float_buffer
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fog_distance
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fragment_coverage_to_color
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fragment_program
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fragment_program_option
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fragment_program2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_fragment_shader_interlock
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_framebuffer_mixed_samples
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_framebuffer_multisample_coverage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_geometry_shader4
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_geometry_shader_passthrough
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_gpu_program4
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_internalformat_sample_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_gpu_program4_1
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_gpu_program5
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_gpu_program5_mem_extended
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_gpu_program_fp64
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_gpu_shader5
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_half_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_light_max_exponent
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_multisample_coverage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_multisample_filter_hint
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_NV_occlusion_query
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_packed_depth_stencil
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_parameter_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_parameter_buffer_object2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_path_rendering
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_path_rendering_shared_edge
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_pixel_data_range
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_point_sprite
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_primitive_restart
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_query_resource
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_query_resource_tag
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_register_combiners
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_register_combiners2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_sample_locations
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_sample_mask_override_coverage
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_atomic_counters
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_atomic_float
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_atomic_float64
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_atomic_fp16_vector
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_atomic_int64
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_buffer_load
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_storage_buffer_object
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_stereo_view_rendering
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texgen_reflection
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_barrier
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_compression_vtc
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_env_combine4
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_multisample
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_rectangle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_rectangle_compressed
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_shader
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_shader2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_texture_shader3
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_transform_feedback
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_transform_feedback2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_uniform_buffer_unified_memory
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vdpau_interop
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_array_range
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_array_range2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_attrib_integer_64bit
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_buffer_unified_memory
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_program
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_program1_1
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_program2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_program2_option
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_vertex_program3
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_viewport_array2
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_viewport_swizzle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NVX_conditional_render
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION  (supported): GL_NVX_gpu_memory_info
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NVX_nvenc_interop
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_thread_group
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_NV_shader_thread_shuffle
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KHR_blend_equation_advanced
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_KHR_blend_equation_advanced_coherent
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_SGIS_generate_mipmap
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_SGIS_texture_lod
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_SGIX_depth_texture
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_SGIX_shadow
+../../../src/renderer_gl.cpp (1684): BGFX GL_EXTENSION : GL_SUN_slice_accum
+../../../src/renderer_gl.cpp (1918): BGFX Supported extensions:
+../../../src/renderer_gl.cpp (1923): BGFX 	 1: AMD_multi_draw_indirect
+../../../src/renderer_gl.cpp (1923): BGFX 	13: ARB_clip_control
+../../../src/renderer_gl.cpp (1923): BGFX 	14: ARB_compute_shader
+../../../src/renderer_gl.cpp (1923): BGFX 	15: ARB_conservative_depth
+../../../src/renderer_gl.cpp (1923): BGFX 	16: ARB_copy_image
+../../../src/renderer_gl.cpp (1923): BGFX 	18: ARB_debug_output
+../../../src/renderer_gl.cpp (1923): BGFX 	19: ARB_depth_buffer_float
+../../../src/renderer_gl.cpp (1923): BGFX 	20: ARB_depth_clamp
+../../../src/renderer_gl.cpp (1923): BGFX 	21: ARB_draw_buffers_blend
+../../../src/renderer_gl.cpp (1923): BGFX 	22: ARB_draw_indirect
+../../../src/renderer_gl.cpp (1923): BGFX 	23: ARB_draw_instanced
+../../../src/renderer_gl.cpp (1923): BGFX 	24: ARB_ES3_compatibility
+../../../src/renderer_gl.cpp (1923): BGFX 	25: ARB_framebuffer_object
+../../../src/renderer_gl.cpp (1923): BGFX 	26: ARB_framebuffer_sRGB
+../../../src/renderer_gl.cpp (1923): BGFX 	27: ARB_get_program_binary
+../../../src/renderer_gl.cpp (1923): BGFX 	28: ARB_half_float_pixel
+../../../src/renderer_gl.cpp (1923): BGFX 	29: ARB_half_float_vertex
+../../../src/renderer_gl.cpp (1923): BGFX 	30: ARB_instanced_arrays
+../../../src/renderer_gl.cpp (1923): BGFX 	31: ARB_internalformat_query
+../../../src/renderer_gl.cpp (1923): BGFX 	32: ARB_internalformat_query2
+../../../src/renderer_gl.cpp (1923): BGFX 	33: ARB_invalidate_subdata
+../../../src/renderer_gl.cpp (1923): BGFX 	34: ARB_map_buffer_range
+../../../src/renderer_gl.cpp (1923): BGFX 	35: ARB_multi_draw_indirect
+../../../src/renderer_gl.cpp (1923): BGFX 	36: ARB_multisample
+../../../src/renderer_gl.cpp (1923): BGFX 	37: ARB_occlusion_query
+../../../src/renderer_gl.cpp (1923): BGFX 	38: ARB_occlusion_query2
+../../../src/renderer_gl.cpp (1923): BGFX 	39: ARB_program_interface_query
+../../../src/renderer_gl.cpp (1923): BGFX 	40: ARB_sampler_objects
+../../../src/renderer_gl.cpp (1923): BGFX 	41: ARB_seamless_cube_map
+../../../src/renderer_gl.cpp (1923): BGFX 	42: ARB_shader_bit_encoding
+../../../src/renderer_gl.cpp (1923): BGFX 	43: ARB_shader_image_load_store
+../../../src/renderer_gl.cpp (1923): BGFX 	44: ARB_shader_storage_buffer_object
+../../../src/renderer_gl.cpp (1923): BGFX 	45: ARB_shader_texture_lod
+../../../src/renderer_gl.cpp (1923): BGFX 	46: ARB_texture_compression_bptc
+../../../src/renderer_gl.cpp (1923): BGFX 	47: ARB_texture_compression_rgtc
+../../../src/renderer_gl.cpp (1923): BGFX 	48: ARB_texture_cube_map_array
+../../../src/renderer_gl.cpp (1923): BGFX 	49: ARB_texture_float
+../../../src/renderer_gl.cpp (1923): BGFX 	50: ARB_texture_multisample
+../../../src/renderer_gl.cpp (1923): BGFX 	51: ARB_texture_rg
+../../../src/renderer_gl.cpp (1923): BGFX 	52: ARB_texture_rgb10_a2ui
+../../../src/renderer_gl.cpp (1923): BGFX 	53: ARB_texture_stencil8
+../../../src/renderer_gl.cpp (1923): BGFX 	54: ARB_texture_storage
+../../../src/renderer_gl.cpp (1923): BGFX 	55: ARB_texture_swizzle
+../../../src/renderer_gl.cpp (1923): BGFX 	56: ARB_timer_query
+../../../src/renderer_gl.cpp (1923): BGFX 	57: ARB_uniform_buffer_object
+../../../src/renderer_gl.cpp (1923): BGFX 	58: ARB_vertex_array_object
+../../../src/renderer_gl.cpp (1923): BGFX 	59: ARB_vertex_type_2_10_10_10_rev
+../../../src/renderer_gl.cpp (1923): BGFX 	67: EXT_bgra
+../../../src/renderer_gl.cpp (1923): BGFX 	68: EXT_blend_color
+../../../src/renderer_gl.cpp (1923): BGFX 	69: EXT_blend_minmax
+../../../src/renderer_gl.cpp (1923): BGFX 	70: EXT_blend_subtract
+../../../src/renderer_gl.cpp (1923): BGFX 	81: EXT_draw_instanced
+../../../src/renderer_gl.cpp (1923): BGFX 	84: EXT_framebuffer_blit
+../../../src/renderer_gl.cpp (1923): BGFX 	85: EXT_framebuffer_object
+../../../src/renderer_gl.cpp (1923): BGFX 	86: EXT_framebuffer_sRGB
+../../../src/renderer_gl.cpp (1923): BGFX 	87: EXT_gpu_shader4
+../../../src/renderer_gl.cpp (1923): BGFX 	90: EXT_packed_float
+../../../src/renderer_gl.cpp (1923): BGFX 	92: EXT_shader_image_load_store
+../../../src/renderer_gl.cpp (1923): BGFX 	96: EXT_texture_array
+../../../src/renderer_gl.cpp (1923): BGFX 	97: EXT_texture_compression_dxt1
+../../../src/renderer_gl.cpp (1923): BGFX 	98: EXT_texture_compression_latc
+../../../src/renderer_gl.cpp (1923): BGFX 	99: EXT_texture_compression_rgtc
+../../../src/renderer_gl.cpp (1923): BGFX 	100: EXT_texture_compression_s3tc
+../../../src/renderer_gl.cpp (1923): BGFX 	102: EXT_texture_filter_anisotropic
+../../../src/renderer_gl.cpp (1923): BGFX 	105: EXT_texture_shared_exponent
+../../../src/renderer_gl.cpp (1923): BGFX 	106: EXT_texture_snorm
+../../../src/renderer_gl.cpp (1923): BGFX 	107: EXT_texture_sRGB
+../../../src/renderer_gl.cpp (1923): BGFX 	108: EXT_texture_storage
+../../../src/renderer_gl.cpp (1923): BGFX 	109: EXT_texture_swizzle
+../../../src/renderer_gl.cpp (1923): BGFX 	111: EXT_timer_query
+../../../src/renderer_gl.cpp (1923): BGFX 	121: KHR_debug
+../../../src/renderer_gl.cpp (1923): BGFX 	122: KHR_no_error
+../../../src/renderer_gl.cpp (1923): BGFX 	125: NV_conservative_raster
+../../../src/renderer_gl.cpp (1923): BGFX 	126: NV_copy_image
+../../../src/renderer_gl.cpp (1923): BGFX 	128: NV_occlusion_query
+../../../src/renderer_gl.cpp (1923): BGFX 	130: NVX_gpu_memory_info
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BGRA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC3
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC6H
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BC7
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ETC1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ETC2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ETC2A
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ETC2A1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, PTC12
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC12 is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, PTC14
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC14 is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, PTC12A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC12A is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, PTC14A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC14A is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, PTC22
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC22 is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, PTC24
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC24 is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ATC
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ATC is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ATCE
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ATCE is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ATCI
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ATCI is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ASTC4x4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ASTC5x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC5x5 is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ASTC6x6
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC6x6 is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ASTC8x5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ASTC8x6
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, ASTC10x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC10x5 is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, A8
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::A8 is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R8I
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R8U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R16I
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R16U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R16S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R32I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::R32I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R32U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG8I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG8I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG8U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG8U is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG16I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG16I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG16U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG16U is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG16S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG32I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG32I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG32U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB8I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGB8I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB8U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGB8U is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB9E5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, BGRA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA8I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA8I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA8U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA8U is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA16I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA16I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA16U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA16U is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA16S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA32I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA32I is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA32U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, R5G6B5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGBA4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB5A1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RGB10A2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, RG11B10F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D24
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D24S8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D32
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D24F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 0, D0S8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, BC1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, BC2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, BC3
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC3
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC6H
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BC7
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ETC1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ETC2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ETC2A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ETC2A +sRGB is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ETC2A
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ETC2A1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ETC2A1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, PTC12
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC12 +sRGB is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, PTC12
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC12 +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, PTC14
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC14 +sRGB is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, PTC14
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC14 +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, PTC12A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC12A +sRGB is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, PTC12A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC12A +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, PTC14A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC14A +sRGB is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, PTC14A
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC14A +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, PTC22
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC22 +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, PTC24
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::PTC24 +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ATC
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ATC +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ATCE
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ATCE +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ATCI
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ATCI +mipAutoGen is not supported (500: GL_INVALID_ENUM).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ASTC4x4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ASTC4x4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ASTC5x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC5x5 +sRGB is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ASTC5x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC5x5 +mipAutoGen is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ASTC6x6
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC6x6 +sRGB is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ASTC6x6
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC6x6 +mipAutoGen is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ASTC8x5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ASTC8x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC8x5 +mipAutoGen is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ASTC8x6
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ASTC8x6
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC8x6 +mipAutoGen is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, ASTC10x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC10x5 +sRGB is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, ASTC10x5
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::ASTC10x5 +mipAutoGen is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, A8
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::A8 +mipAutoGen is not supported (501: GL_INVALID_VALUE).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R8I
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R8U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R16I
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R16U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R16S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R32I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::R32I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R32U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG8I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG8I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG8U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG8U +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG16I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG16I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG16U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG16U +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG16S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG32I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RG32I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG32U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, RGB8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB8I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGB8I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB8U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGB8U +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB9E5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, BGRA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, BGRA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 1, 0, RGBA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA8I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA8I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA8U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA8U +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA8S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA16I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA16I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA16U
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA16U +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA16S
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA32I
+../../../src/renderer_gl.cpp (1507): BGFX WARN TextureFormat::RGBA32I +mipAutoGen is not supported (502: GL_INVALID_OPERATION).
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA32U
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, R5G6B5
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGBA4
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB5A1
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RGB10A2
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, RG11B10F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D16
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D24
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D24S8
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D32
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D16F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D24F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D32F
+../../../src/renderer_gl.cpp (1480): BGFX 0, 0, 1, D0S8
+../../../src/bgfx.cpp (385): BGFX Graphics debugger is not present.
+../../../src/bgfx.cpp (1446): BGFX 
+../../../src/bgfx.cpp (1472): BGFX Supported renderer backends (2):
+../../../src/bgfx.cpp (1475): BGFX 	 - Noop
+../../../src/bgfx.cpp (1475): BGFX 	 - OpenGL 3.2
+../../../src/bgfx.cpp (1478): BGFX 
+../../../src/bgfx.cpp (1479): BGFX Sort key masks:
+../../../src/bgfx.cpp (1480): BGFX 	   View     3fc0000000000000
+../../../src/bgfx.cpp (1481): BGFX 	   Draw bit 0020000000000000
+../../../src/bgfx.cpp (1483): BGFX 
+../../../src/bgfx.cpp (1484): BGFX 	D  Type     0018000000000000
+../../../src/bgfx.cpp (1486): BGFX 
+../../../src/bgfx.cpp (1487): BGFX 	D0 Trans    0006000000000000
+../../../src/bgfx.cpp (1488): BGFX 	D0 Program  0001ff0000000000
+../../../src/bgfx.cpp (1489): BGFX 	D0 Depth    000000ffffffff00
+../../../src/bgfx.cpp (1491): BGFX 
+../../../src/bgfx.cpp (1492): BGFX 	D1 Depth    0007fffffff80000
+../../../src/bgfx.cpp (1493): BGFX 	D1 Trans    0000000000060000
+../../../src/bgfx.cpp (1494): BGFX 	D1 Program  000000000001ff00
+../../../src/bgfx.cpp (1496): BGFX 
+../../../src/bgfx.cpp (1497): BGFX 	D2 Seq      0007ffff80000000
+../../../src/bgfx.cpp (1498): BGFX 	D2 Trans    0000000060000000
+../../../src/bgfx.cpp (1499): BGFX 	D2 Program  000000001ff00000
+../../../src/bgfx.cpp (1501): BGFX 
+../../../src/bgfx.cpp (1502): BGFX 	 C Seq      001ffffe00000000
+../../../src/bgfx.cpp (1503): BGFX 	 C Program  00000001ff000000
+../../../src/bgfx.cpp (1505): BGFX 
+../../../src/bgfx.cpp (1506): BGFX Supported capabilities (renderer OpenGL 3.2, vendor 0x10de, device 0x0000):
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_ALPHA_TO_COVERAGE
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_BLEND_INDEPENDENT
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_COMPUTE
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_CONSERVATIVE_RASTER
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_DRAW_INDIRECT
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_FRAGMENT_DEPTH
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_INDEX32
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_INSTANCING
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_OCCLUSION_QUERY
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_RENDERER_MULTITHREADED
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_SWAP_CHAIN
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_2D_ARRAY
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_3D
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_BLIT
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_COMPARE_ALL
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_COMPARE_LEQUAL
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_CUBE_ARRAY
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_TEXTURE_READ_BACK
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_VERTEX_ATTRIB_HALF
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_VERTEX_ATTRIB_UINT10
+../../../src/bgfx.cpp (1515): BGFX 	BGFX_CAPS_VERTEX_ID
+../../../src/bgfx.cpp (1519): BGFX 
+../../../src/bgfx.cpp (1520): BGFX Limits:
+../../../src/bgfx.cpp (1522): BGFX 	maxDrawCalls             65535
+../../../src/bgfx.cpp (1523): BGFX 	maxBlits                 1024
+../../../src/bgfx.cpp (1524): BGFX 	maxTextureSize           32768
+../../../src/bgfx.cpp (1525): BGFX 	maxTextureLayers         2048
+../../../src/bgfx.cpp (1526): BGFX 	maxViews                 256
+../../../src/bgfx.cpp (1527): BGFX 	maxFrameBuffers          128
+../../../src/bgfx.cpp (1528): BGFX 	maxFBAttachments         8
+../../../src/bgfx.cpp (1529): BGFX 	maxPrograms              512
+../../../src/bgfx.cpp (1530): BGFX 	maxShaders               512
+../../../src/bgfx.cpp (1531): BGFX 	maxTextures              4096
+../../../src/bgfx.cpp (1532): BGFX 	maxTextureSamplers       16
+../../../src/bgfx.cpp (1533): BGFX 	maxComputeBindings       16
+../../../src/bgfx.cpp (1534): BGFX 	maxVertexDecls           64
+../../../src/bgfx.cpp (1535): BGFX 	maxVertexStreams         4
+../../../src/bgfx.cpp (1536): BGFX 	maxIndexBuffers          4096
+../../../src/bgfx.cpp (1537): BGFX 	maxVertexBuffers         4096
+../../../src/bgfx.cpp (1538): BGFX 	maxDynamicIndexBuffers   4096
+../../../src/bgfx.cpp (1539): BGFX 	maxDynamicVertexBuffers  4096
+../../../src/bgfx.cpp (1540): BGFX 	maxUniforms              512
+../../../src/bgfx.cpp (1541): BGFX 	maxOcclusionQueries      256
+../../../src/bgfx.cpp (1542): BGFX 	maxEncoders              8
+../../../src/bgfx.cpp (1543): BGFX 	transientVbSize          6291456
+../../../src/bgfx.cpp (1544): BGFX 	transientIbSize          2097152
+../../../src/bgfx.cpp (1547): BGFX 
+../../../src/bgfx.cpp (1548): BGFX Supported texture formats:
+../../../src/bgfx.cpp (1549): BGFX 	 +----------------   2D: x = supported / * = emulated
+../../../src/bgfx.cpp (1550): BGFX 	 |+---------------   2D: sRGB format
+../../../src/bgfx.cpp (1551): BGFX 	 ||+--------------   3D: x = supported / * = emulated
+../../../src/bgfx.cpp (1552): BGFX 	 |||+-------------   3D: sRGB format
+../../../src/bgfx.cpp (1553): BGFX 	 ||||+------------ Cube: x = supported / * = emulated
+../../../src/bgfx.cpp (1554): BGFX 	 |||||+----------- Cube: sRGB format
+../../../src/bgfx.cpp (1555): BGFX 	 ||||||+---------- vertex format
+../../../src/bgfx.cpp (1556): BGFX 	 |||||||+--------- image
+../../../src/bgfx.cpp (1557): BGFX 	 ||||||||+-------- framebuffer
+../../../src/bgfx.cpp (1558): BGFX 	 |||||||||+------- MSAA framebuffer
+../../../src/bgfx.cpp (1559): BGFX 	 ||||||||||+------ MSAA texture
+../../../src/bgfx.cpp (1560): BGFX 	 |||||||||||+----- Auto-generated mips
+../../../src/bgfx.cpp (1561): BGFX 	 ||||||||||||  +-- name
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl   +mM] BC1
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl   +mM] BC2
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl   +mM] BC3
+../../../src/bgfx.cpp (1568): BGFX 	[x x x    +mM] BC4
+../../../src/bgfx.cpp (1568): BGFX 	[x x x    +mM] BC5
+../../../src/bgfx.cpp (1568): BGFX 	[x x x    +mM] BC6H
+../../../src/bgfx.cpp (1568): BGFX 	[x x x    +mM] BC7
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] ETC1
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] ETC2
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] ETC2A
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl  f+mM] ETC2A1
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] PTC12
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] PTC14
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] PTC12A
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] PTC14A
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] PTC22
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] PTC24
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] ATC
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] ATCE
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] ATCI
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl  f  M] ASTC4x4
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] ASTC5x5
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] ASTC6x6
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl  f   ] ASTC8x5
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl  f   ] ASTC8x6
+../../../src/bgfx.cpp (1568): BGFX 	[* * *       ] ASTC10x5
+../../../src/bgfx.cpp (1568): BGFX 	[            ] R1
+../../../src/bgfx.cpp (1568): BGFX 	[* * *    +m ] A8
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R8
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R8I
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R8U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R8S
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R16
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R16I
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R16U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R16F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R16S
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] R32I
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R32U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] R32F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG8
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RG8I
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RG8U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG8S
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG16
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RG16I
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RG16U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG16F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG16S
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RG32I
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG32U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG32F
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl  f+mM] RGB8
+../../../src/bgfx.cpp (1568): BGFX 	[* * *   f+m ] RGB8I
+../../../src/bgfx.cpp (1568): BGFX 	[* * *   f+m ] RGB8U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] RGB8S
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] RGB9E5
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl if+mM] BGRA8
+../../../src/bgfx.cpp (1568): BGFX 	[xlxlxl if+mM] RGBA8
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RGBA8I
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RGBA8U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGBA8S
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGBA16
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RGBA16I
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RGBA16U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGBA16F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGBA16S
+../../../src/bgfx.cpp (1568): BGFX 	[* * *  if+m ] RGBA32I
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGBA32U
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGBA32F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] R5G6B5
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] RGBA4
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] RGB5A1
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RGB10A2
+../../../src/bgfx.cpp (1568): BGFX 	[x x x  if+mM] RG11B10F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D16
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D24
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D24S8
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D32
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D16F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D24F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D32F
+../../../src/bgfx.cpp (1568): BGFX 	[x x x   f+mM] D0S8
+../../../src/bgfx.cpp (1587): BGFX 
+../../../src/bgfx.cpp (1588): BGFX NDC depth [-1, 1], origin bottom left.
+../../../src/bgfx.cpp (1593): BGFX 
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   0) s_texColor
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   1) bgfx_clear_color
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     0: R8 (requested: R8), layers 1, 2048x24x0.
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 1
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL3: GL1, GL2
+../../../src/renderer_gl.cpp (4192): BGFX Program 3
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (4):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC4 a_color0 is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC4 a_color1 is at location 1
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 2
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 3
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (2):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_texColor 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_texColor is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_modelViewProj* is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 2
+../../../src/renderer_gl.cpp (4433): BGFX attr a_color0: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_color1: 1
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 3
+../../../src/bgfx.cpp (499): BGFX vertexdecl 74c34f26 (d443ed7f), stride 28
+../../../src/bgfx.cpp (515): BGFX 	attr 0 - Attrib::Position, num 3, type 4, norm 0, asint 0, offset 0
+../../../src/bgfx.cpp (515): BGFX 	attr 4 - Attrib::Color0, num 4, type 0, norm 1, asint 0, offset 12
+../../../src/bgfx.cpp (515): BGFX 	attr 5 - Attrib::Color1, num 4, type 0, norm 1, asint 0, offset 16
+../../../src/bgfx.cpp (515): BGFX 	attr 10 - Attrib::TexCoord0, num 2, type 4, norm 0, asint 0, offset 20
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL6: GL4, GL5
+../../../src/renderer_gl.cpp (4192): BGFX Program 6
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL8: GL4, GL7
+../../../src/renderer_gl.cpp (4192): BGFX Program 8
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL10: GL4, GL9
+../../../src/renderer_gl.cpp (4192): BGFX Program 10
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL12: GL4, GL11
+../../../src/renderer_gl.cpp (4192): BGFX Program 12
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL14: GL4, GL13
+../../../src/renderer_gl.cpp (4192): BGFX Program 14
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL16: GL4, GL15
+../../../src/renderer_gl.cpp (4192): BGFX Program 16
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL18: GL4, GL17
+../../../src/renderer_gl.cpp (4192): BGFX Program 18
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL20: GL4, GL19
+../../../src/renderer_gl.cpp (4192): BGFX Program 20
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (1):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4281): BGFX --- bgfx_clear_color
+../../../src/renderer_gl.cpp (4368): BGFX store bgfx_clear_color 1
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 bgfx_clear_color is at location 0, size 8, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/bgfx.cpp (499): BGFX vertexdecl 5593a40b (43cff366), stride 12
+../../../src/bgfx.cpp (515): BGFX 	attr 0 - Attrib::Position, num 3, type 4, norm 0, asint 0, offset 0
+../../../src/bgfx.cpp (3294): BGFX Init complete.
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   2) s_texNormal
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   3) s_albedo
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   4) s_normal
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   5) s_depth
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   6) s_light
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   7) u_mtx
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   8) u_lightPosRadius
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle   9) u_lightRgbInnerR
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle  10) s_tex
+../../../src/bgfx_p.h (4461): BGFX Creating uniform (handle  11) u_imageLodEnabled
+../../../src/bgfx.cpp (499): BGFX vertexdecl 59d5bebd (fb22050e), stride 24
+../../../src/bgfx.cpp (515): BGFX 	attr 0 - Attrib::Position, num 3, type 4, norm 0, asint 0, offset 0
+../../../src/bgfx.cpp (515): BGFX 	attr 1 - Attrib::Normal, num 4, type 0, norm 1, asint 1, offset 12
+../../../src/bgfx.cpp (515): BGFX 	attr 2 - Attrib::Tangent, num 4, type 0, norm 1, asint 1, offset 16
+../../../src/bgfx.cpp (515): BGFX 	attr 10 - Attrib::TexCoord0, num 2, type 2, norm 1, asint 1, offset 20
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 3
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 3
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL23: GL21, GL22
+../../../src/renderer_gl.cpp (4192): BGFX Program 23
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (4):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC4 a_normal is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 1
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC4 a_tangent is at location 2
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 3
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (6):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_texColor 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_texColor is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #1 at location 1.
+../../../src/renderer_gl.cpp (4368): BGFX store s_texNormal 2
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_texNormal is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_invView* is at location 2, size 1, offset 0
+../../../src/renderer_gl.cpp (4281): BGFX --- u_model
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_model* is at location 3, size 32, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_view* is at location 35, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_viewProj* is at location 36, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 1
+../../../src/renderer_gl.cpp (4433): BGFX attr a_normal: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_tangent: 2
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 3
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 1
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 6
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL26: GL24, GL25
+../../../src/renderer_gl.cpp (4192): BGFX Program 26
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (2):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 1
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (6):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_depth 5
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_depth is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #1 at location 1.
+../../../src/renderer_gl.cpp (4368): BGFX store s_normal 4
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_normal is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4281): BGFX --- u_lightPosRadius
+../../../src/renderer_gl.cpp (4368): BGFX store u_lightPosRadius 8
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 u_lightPosRadius is at location 2, size 1, offset 0
+../../../src/renderer_gl.cpp (4281): BGFX --- u_lightRgbInnerR
+../../../src/renderer_gl.cpp (4368): BGFX store u_lightRgbInnerR 9
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 u_lightRgbInnerR is at location 3, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_modelViewProj* is at location 4, size 1, offset 0
+../../../src/renderer_gl.cpp (4368): BGFX store u_mtx 7
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_mtx is at location 5, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 1
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 2
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL28: GL24, GL27
+../../../src/renderer_gl.cpp (4192): BGFX Program 28
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (2):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 1
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (3):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_albedo 3
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_albedo is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #1 at location 1.
+../../../src/renderer_gl.cpp (4368): BGFX store s_light 6
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_light is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_modelViewProj* is at location 2, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 1
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL30: GL24, GL29
+../../../src/renderer_gl.cpp (4192): BGFX Program 30
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (2):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 1
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (2):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_texColor 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_texColor is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_modelViewProj* is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 1
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 1
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 0
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL33: GL31, GL32
+../../../src/renderer_gl.cpp (4192): BGFX Program 33
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (2):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC4 a_color0 is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 1
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (1):
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_modelViewProj* is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 1
+../../../src/renderer_gl.cpp (4433): BGFX attr a_color0: 0
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     1: BC2 (requested: BC2), layers 1, 512x512x0.
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     2: BC5 (requested: BC5), layers 1, 512x512x0.
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 1
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL36: GL35, GL34
+../../../src/renderer_gl.cpp (4192): BGFX Program 36
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (3):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC4 a_color0 is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 1
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 2
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (2):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_tex 10
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_tex is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 u_viewTexel* is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 1
+../../../src/renderer_gl.cpp (4433): BGFX attr a_color0: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 2
+../../../src/renderer_gl.cpp (5259): BGFX Fragment Shader consts 2
+../../../src/renderer_gl.cpp (5259): BGFX Vertex Shader consts 1
+../../../src/renderer_gl.cpp (4082): BGFX Program create: GL39: GL38, GL37
+../../../src/renderer_gl.cpp (4192): BGFX Program 39
+../../../src/renderer_gl.cpp (4193): BGFX Attributes (2):
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC3 a_position is at location 0
+../../../src/renderer_gl.cpp (4218): BGFX 	GL_FLOAT_VEC2 a_texcoord0 is at location 1
+../../../src/renderer_gl.cpp (4228): BGFX Uniforms (3):
+../../../src/renderer_gl.cpp (4328): BGFX Sampler #0 at location 0.
+../../../src/renderer_gl.cpp (4368): BGFX store s_texColor 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_SAMPLER_2D s_texColor is at location 0, size 1, offset 0
+../../../src/renderer_gl.cpp (4368): BGFX store u_imageLodEnabled 11
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_VEC4 u_imageLodEnabled is at location 1, size 1, offset 0
+../../../src/renderer_gl.cpp (4372): BGFX 	uniform GL_FLOAT_MAT4 u_viewProj* is at location 2, size 1, offset 0
+../../../src/renderer_gl.cpp (4397): BGFX Buffers (0):
+../../../src/renderer_gl.cpp (4433): BGFX attr a_position: 0
+../../../src/renderer_gl.cpp (4433): BGFX attr a_texcoord0: 1
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     3: BGRA8 (requested: BGRA8), layers 1, 1024x1024x0.
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     4: BGRA8 (requested: BGRA8), layers 1, 1280x720x0 (render target).
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     5: BGRA8 (requested: BGRA8), layers 1, 1280x720x0 (render target).
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     6: D24S8 (requested: D24S8), layers 1, 1280x720x0 (render target).
+../../../src/renderer_gl.cpp (4785): BGFX Texture2D     7: BGRA8 (requested: BGRA8), layers 1, 1280x720x0 (render target).
+../../../src/bgfx.cpp (499): BGFX vertexdecl b2738412 (ce13ff9c), stride 20
+../../../src/bgfx.cpp (515): BGFX 	attr 0 - Attrib::Position, num 3, type 4, norm 0, asint 0, offset 0
+../../../src/bgfx.cpp (515): BGFX 	attr 10 - Attrib::TexCoord0, num 2, type 4, norm 0, asint 0, offset 12
+../../../src/bgfx.cpp (499): BGFX vertexdecl 93597fa9 (21d0cb5a), stride 20
+../../../src/bgfx.cpp (515): BGFX 	attr 0 - Attrib::Position, num 2, type 4, norm 0, asint 0, offset 0
+../../../src/bgfx.cpp (515): BGFX 	attr 4 - Attrib::Color0, num 4, type 0, norm 1, asint 0, offset 16
+../../../src/bgfx.cpp (515): BGFX 	attr 10 - Attrib::TexCoord0, num 2, type 4, norm 0, asint 0, offset 8
+../../../src/bgfx.cpp (3334): BGFX Shutdown...
+../../../src/bgfx_p.h (2818): BGFX render thread exit
+../../../src/bgfx.cpp (3343): BGFX Shutdown complete.

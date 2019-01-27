@@ -9,6 +9,7 @@
 #	include "renderer_gl.h"
 #	include <bx/timer.h>
 #	include <bx/uint32_t.h>
+#include <iostream>
 
 namespace bgfx { namespace gl
 {
@@ -6517,6 +6518,7 @@ BX_TRACE("%d, %d, %d, %s", _array, _srgb, _mipAutogen, getName(_format) );
 								case Binding::Image:
 									{
 										const TextureGL& texture = m_textures[bind.m_idx];
+										// std::cout << "TEXTURE ? " << texture.m_id << " mip " << bind.m_mip << " ii " << ii << std::endl;
 										GL_CHECK(glBindImageTexture(ii
 											, texture.m_id
 											, bind.m_mip

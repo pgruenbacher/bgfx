@@ -136,7 +136,8 @@ public:
 		cameraCreate();
 
 		cameraSetPosition({ s_terrainSize/2.0f, 100.0f, 0.0f });
-		cameraSetVerticalAngle(-bx::kPiQuarter);
+		cameraSetVerticalAngle(0);
+		cameraSetHorizontalAngle(0);
 	}
 
 	virtual int shutdown() override
