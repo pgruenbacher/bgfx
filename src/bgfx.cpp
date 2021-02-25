@@ -9,7 +9,6 @@
 #include <bgfx/embedded_shader.h>
 #include <bx/file.h>
 #include <bx/mutex.h>
-
 #include "topology.h"
 
 #if BX_PLATFORM_OSX || BX_PLATFORM_IOS
@@ -3874,8 +3873,8 @@ namespace bgfx
 		uint32_t dstWidth  = bx::max<uint32_t>(1, dst.m_width  >> _dstMip);
 		uint32_t dstHeight = bx::max<uint32_t>(1, dst.m_height >> _dstMip);
 
-		uint32_t srcDepth  = src.isCubeMap() ? 6 : bx::max<uint32_t>(1, src.m_depth >> _srcMip);
-		uint32_t dstDepth  = dst.isCubeMap() ? 6 : bx::max<uint32_t>(1, dst.m_depth >> _dstMip);
+		uint32_t srcDepth  = src.isCubeMap() ? 6 : bx::max<uint32_t>(src.m_numLayers, src.m_depth >> _srcMip);
+		uint32_t dstDepth  = dst.isCubeMap() ? 6 : bx::max<uint32_t>(dst.m_numLayers, dst.m_depth >> _dstMip);
 
 		BX_ASSERT(_srcX < srcWidth && _srcY < srcHeight && _srcZ < srcDepth
 			, "Blit src coordinates out of range (%d, %d, %d) >= (%d, %d, %d)"
