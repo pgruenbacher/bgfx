@@ -7622,6 +7622,7 @@ namespace bgfx { namespace gl
 					profiler.begin(view);
 
 					viewState.m_rect = _render->m_view[view].m_rect;
+					BX_ASSERT(!viewState.m_rect.isZeroArea(), "View %d: view rect outside of framebuffer extent", view);
 
 					const Rect& scissorRect = _render->m_view[view].m_scissor;
 					viewHasScissor  = !scissorRect.isZero();
