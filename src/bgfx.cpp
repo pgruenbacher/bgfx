@@ -9,7 +9,6 @@
 #include <bgfx/embedded_shader.h>
 #include <bx/file.h>
 #include <bx/mutex.h>
-
 #include "topology.h"
 
 #if BX_PLATFORM_OSX || BX_PLATFORM_IOS
@@ -2711,6 +2710,7 @@ namespace bgfx
 					score += 1000;
 				}
 
+
 				score += RendererType::Noop != renderer ? 1 : 0;
 
 				if (BX_ENABLED(BX_PLATFORM_WINDOWS) )
@@ -2786,6 +2786,7 @@ namespace bgfx
 
 			s_rendererCreator[renderer].supported = false;
 		}
+
 
 		return renderCtx;
 	}
@@ -4790,6 +4791,8 @@ namespace bgfx
 		BGFX_ERROR_CHECK(false
 			|| bx::isAlpha(ch)
 			|| '_' == ch
+			|| '@' == ch
+			|| '.' == ch
 			, _err
 			, BGFX_ERROR_IDENTIFIER_VALIDATION
 			, "The first character of an identifier should be either an alphabet character or an underscore."
@@ -4803,7 +4806,7 @@ namespace bgfx
 			; ++ptr
 			)
 		{
-			result &= bx::isAlphaNum(*ptr) || '_' == *ptr;
+			result &= bx::isAlphaNum(*ptr) || '_' == *ptr || '@' == *ptr || '.' == *ptr;
 		}
 
 		BGFX_ERROR_CHECK(false
