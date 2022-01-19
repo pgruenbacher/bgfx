@@ -364,13 +364,13 @@ namespace bgfx { namespace spirv
 			bx::write(_shaderWriter, un.texDimension, &err);
 			bx::write(_shaderWriter, un.texFormat, &err);
 
-			BX_TRACE("%s, %s, %d, %d, %d"
-				, un.name.c_str()
-				, getUniformTypeName(UniformType::Enum(un.type & ~kUniformMask))
-				, un.num
-				, un.regIndex
-				, un.regCount
-				);
+			// BX_TRACE("%s, %s, %d, %d, %d"
+			// 	, un.name.c_str()
+			// 	, getUniformTypeName(UniformType::Enum(un.type & ~kUniformMask))
+			// 	, un.num
+			// 	, un.regIndex
+			// 	, un.regCount
+			// 	);
 		}
 		return size;
 	}
