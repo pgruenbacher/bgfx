@@ -5987,6 +5987,9 @@ VK_DESTROY
 			, _layout
 			, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL
 			, _mip
+			, 1
+			, 0
+			, VK_REMAINING_ARRAY_LAYERS
 			);
 
 		VkBufferImageCopy bic;
@@ -6023,6 +6026,9 @@ VK_DESTROY
 			, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL
 			, _layout
 			, _mip
+			, 1
+			, 0
+			, VK_REMAINING_ARRAY_LAYERS
 			);
 	}
 
