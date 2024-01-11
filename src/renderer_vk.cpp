@@ -1187,11 +1187,12 @@ VK_IMPORT_DEVICE
 			VkResult result;
 			m_globalQueueFamily = UINT32_MAX;
 
-			if (_init.debug
-			||  _init.profile)
-			{
-				m_renderDocDll = loadRenderDoc();
-			}
+			// disabled by paul to avoid vulkan layer statistics always showing annoyingly
+			// if (_init.debug
+			// ||  _init.profile)
+			// {
+			// 	m_renderDocDll = loadRenderDoc();
+			// }
 
 			setGraphicsDebuggerPresent(NULL != m_renderDocDll);
 
