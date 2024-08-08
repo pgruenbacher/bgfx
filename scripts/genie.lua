@@ -1,5 +1,5 @@
 --
--- Copyright 2010-2023 Branimir Karadzic. All rights reserved.
+-- Copyright 2010-2024 Branimir Karadzic. All rights reserved.
 -- License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE
 --
 
@@ -48,6 +48,11 @@ newoption {
 newoption {
 	trigger = "with-examples",
 	description = "Enable building examples.",
+}
+
+newoption {
+	trigger = "with-libheif",
+	description = "Enable building bimg with libheif HEIF and AVIF file format decoder.",
 }
 
 newaction {
@@ -106,7 +111,7 @@ newaction {
 		f:close()
 		io.output(path.join(MODULE_DIR, "src/version.h"))
 		io.write("/*\n")
-		io.write(" * Copyright 2011-2023 Branimir Karadzic. All rights reserved.\n")
+		io.write(" * Copyright 2011-2024 Branimir Karadzic. All rights reserved.\n")
 		io.write(" * License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE\n")
 		io.write(" */\n")
 		io.write("\n")

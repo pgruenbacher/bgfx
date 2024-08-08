@@ -137,6 +137,16 @@ static bool Has16BitCapability(const FeatureManager* feature_manager) {
 // Handler names follow the following convention:
 //  Handler_<Opcode>_<Capability>()
 
+static std::optional<spv::Capability> Handler_OpTypeFloat_Float16(
+    const Instruction* instruction) {
+  assert(instruction->opcode() == spv::Op::OpTypeFloat &&
+         "This handler only support OpTypeFloat opcodes.");
+
+  const uint32_t size =
+      instruction->GetSingleWordInOperand(kOpTypeFloatSizeIndex);
+  return size == 16 ? std::optional(spv::Capability::Float16) : std::nullopt;
+}
+
 static std::optional<spv::Capability> Handler_OpTypeFloat_Float64(
     const Instruction* instruction) {
   assert(instruction->opcode() == spv::Op::OpTypeFloat &&
@@ -274,6 +284,16 @@ static std::optional<spv::Capability> Handler_OpTypePointer_StorageUniform16(
                         : std::nullopt;
 }
 
+static std::optional<spv::Capability> Handler_OpTypeInt_Int16(
+    const Instruction* instruction) {
+  assert(instruction->opcode() == spv::Op::OpTypeInt &&
+         "This handler only support OpTypeInt opcodes.");
+
+  const uint32_t size =
+      instruction->GetSingleWordInOperand(kOpTypeIntSizeIndex);
+  return size == 16 ? std::optional(spv::Capability::Int16) : std::nullopt;
+}
+
 static std::optional<spv::Capability> Handler_OpTypeInt_Int64(
     const Instruction* instruction) {
   assert(instruction->opcode() == spv::Op::OpTypeInt &&
@@ -341,12 +361,14 @@ Handler_OpImageSparseRead_StorageImageReadWithoutFormat(
 }
 
 // Opcode of interest to determine capabilities requirements.
-constexpr std::array<std::pair<spv::Op, OpcodeHandler>, 10> kOpcodeHandlers{{
+constexpr std::array<std::pair<spv::Op, OpcodeHandler>, 12> kOpcodeHandlers{{
     // clang-format off
     {spv::Op::OpImageRead,         Handler_OpImageRead_StorageImageReadWithoutFormat},
     {spv::Op::OpImageSparseRead,   Handler_OpImageSparseRead_StorageImageReadWithoutFormat},
+    {spv::Op::OpTypeFloat,         Handler_OpTypeFloat_Float16 },
     {spv::Op::OpTypeFloat,         Handler_OpTypeFloat_Float64 },
     {spv::Op::OpTypeImage,         Handler_OpTypeImage_ImageMSArray},
+    {spv::Op::OpTypeInt,           Handler_OpTypeInt_Int16 },
     {spv::Op::OpTypeInt,           Handler_OpTypeInt_Int64 },
     {spv::Op::OpTypePointer,       Handler_OpTypePointer_StorageInputOutput16},
     {spv::Op::OpTypePointer,       Handler_OpTypePointer_StoragePushConstant16},
@@ -377,6 +399,33 @@ ExtensionSet getExtensionsRelatedTo(const CapabilitySet& capabilities,
 
   return output;
 }
+
+bool hasOpcodeConflictingCapabilities(spv::Op opcode) {
+  switch (opcode) {
+    case spv::Op::OpBeginInvocationInterlockEXT:
+    case spv::Op::OpEndInvocationInterlockEXT:
+    case spv::Op::OpGroupNonUniformIAdd:
+    case spv::Op::OpGroupNonUniformFAdd:
+    case spv::Op::OpGroupNonUniformIMul:
+    case spv::Op::OpGroupNonUniformFMul:
+    case spv::Op::OpGroupNonUniformSMin:
+    case spv::Op::OpGroupNonUniformUMin:
+    case spv::Op::OpGroupNonUniformFMin:
+    case spv::Op::OpGroupNonUniformSMax:
+    case spv::Op::OpGroupNonUniformUMax:
+    case spv::Op::OpGroupNonUniformFMax:
+    case spv::Op::OpGroupNonUniformBitwiseAnd:
+    case spv::Op::OpGroupNonUniformBitwiseOr:
+    case spv::Op::OpGroupNonUniformBitwiseXor:
+    case spv::Op::OpGroupNonUniformLogicalAnd:
+    case spv::Op::OpGroupNonUniformLogicalOr:
+    case spv::Op::OpGroupNonUniformLogicalXor:
+      return true;
+    default:
+      return false;
+  }
+}
+
 }  // namespace
 
 TrimCapabilitiesPass::TrimCapabilitiesPass()
@@ -394,10 +443,7 @@ TrimCapabilitiesPass::TrimCapabilitiesPass()
 void TrimCapabilitiesPass::addInstructionRequirementsForOpcode(
     spv::Op opcode, CapabilitySet* capabilities,
     ExtensionSet* extensions) const {
-  // Ignoring OpBeginInvocationInterlockEXT and OpEndInvocationInterlockEXT
-  // because they have three possible capabilities, only one of which is needed
-  if (opcode == spv::Op::OpBeginInvocationInterlockEXT ||
-      opcode == spv::Op::OpEndInvocationInterlockEXT) {
+  if (hasOpcodeConflictingCapabilities(opcode)) {
     return;
   }
 
@@ -424,6 +470,17 @@ void TrimCapabilitiesPass::addInstructionRequirementsForOperand(
       operand.type == SPV_OPERAND_TYPE_ID ||
       operand.type == SPV_OPERAND_TYPE_RESULT_ID) {
     return;
+  }
+
+  // If the Vulkan memory model is declared and any instruction uses Device
+  // scope, the VulkanMemoryModelDeviceScope capability must be declared. This
+  // rule cannot be covered by the grammar, so must be checked explicitly.
+  if (operand.type == SPV_OPERAND_TYPE_SCOPE_ID) {
+    const Instruction* memory_model = context()->GetMemoryModel();
+    if (memory_model && memory_model->GetSingleWordInOperand(1u) ==
+                            uint32_t(spv::MemoryModel::Vulkan)) {
+      capabilities->insert(spv::Capability::VulkanMemoryModelDeviceScope);
+    }
   }
 
   // case 1: Operand is a single value, can directly lookup.

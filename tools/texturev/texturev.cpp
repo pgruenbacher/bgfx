@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 Branimir Karadzic. All rights reserved.
+ * Copyright 2011-2024 Branimir Karadzic. All rights reserved.
  * License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE
  */
 
@@ -76,9 +76,10 @@ static const char* s_supportedExt[] =
 	"exr",
 	"gif",
 	"gnf",
-	"jpg",
-	"jpeg",
 	"hdr",
+	"heic",
+	"jpeg",
+	"jpg",
 	"ktx",
 	"pgm",
 	"png",
@@ -135,7 +136,9 @@ static const InputBinding s_bindingApp[] =
 
 const char* s_resetCmd =
 	"view zoom 1.0\n"
-	"view rotate 0\n"
+	"view rotate x 0\n"
+	"view rotate y 0\n"
+	"view rotate z 0\n"
 	"view cubemap\n"
 	"view pan\n"
 	"view ev\n"
@@ -159,8 +162,11 @@ static const InputBinding s_bindingView[] =
 	{ entry::Key::Plus,      entry::Modifier::None,       1, NULL, "view zoom +0.1"          },
 	{ entry::Key::Minus,     entry::Modifier::None,       1, NULL, "view zoom -0.1"          },
 
-	{ entry::Key::KeyZ,      entry::Modifier::None,       1, NULL, "view rotate -90"         },
-	{ entry::Key::KeyZ,      entry::Modifier::LeftShift,  1, NULL, "view rotate +90"         },
+	{ entry::Key::KeyZ,      entry::Modifier::None,       1, NULL, "view rotate z -90"       },
+	{ entry::Key::KeyZ,      entry::Modifier::LeftShift,  1, NULL, "view rotate z +90"       },
+
+	{ entry::Key::KeyX,      entry::Modifier::None,       1, NULL, "view rotate x +180"      },
+	{ entry::Key::KeyY,      entry::Modifier::None,       1, NULL, "view rotate y +180"      },
 
 	{ entry::Key::Up,        entry::Modifier::None,       1, NULL, "view pan\n"
 	                                                               "view file-up"            },
@@ -253,15 +259,6 @@ struct RendererTypeRemap
 	bgfx::RendererType::Enum type;
 };
 
-static RendererTypeRemap s_rendererTypeRemap[] =
-{
-	{ "gl",    bgfx::RendererType::OpenGL     },
-	{ "d3d11", bgfx::RendererType::Direct3D11 },
-	{ "d3d11", bgfx::RendererType::Direct3D12 },
-	{ "vk",    bgfx::RendererType::Vulkan     },
-	{ "mtl",   bgfx::RendererType::Metal      },
-};
-
 struct View
 {
 	View()
@@ -281,7 +278,6 @@ struct View
 		, m_angx(0.0f)
 		, m_angy(0.0f)
 		, m_zoom(1.0f)
-		, m_angle(0.0f)
 		, m_orientation(0.0f)
 		, m_flipH(0.0f)
 		, m_flipV(0.0f)
@@ -298,6 +294,10 @@ struct View
 		, m_sdf(false)
 		, m_inLinear(false)
 	{
+		m_rotate[0] = 0.0f;
+		m_rotate[1] = 0.0f;
+		m_rotate[2] = 0.0f;
+
 		load();
 
 		m_textureInfo.format = bgfx::TextureFormat::Count;
@@ -484,24 +484,28 @@ struct View
 			{
 				if (_argc >= 3)
 				{
-					float angle;
-					bx::fromString(&angle, _argv[2]);
+					int8_t axis = bx::clamp(bx::toLower(_argv[2][0]) - 'x', 0, 2);
 
-					if (_argv[2][0] == '+'
-					||  _argv[2][0] == '-')
+					float angle;
+					bx::fromString(&angle, _argv[3]);
+
+					if (_argv[3][0] == '+'
+					||  _argv[3][0] == '-')
 					{
-						m_angle += bx::toRad(angle);
+						m_rotate[axis] += bx::toRad(angle);
 					}
 					else
 					{
-						m_angle = bx::toRad(angle);
+						m_rotate[axis] = bx::toRad(angle);
 					}
 
-					m_angle = bx::wrap(m_angle, bx::kPi*2.0f);
+					m_rotate[axis] = bx::wrap(m_rotate[axis], bx::kPi*2.0f);
 				}
 				else
 				{
-					m_angle = 0.0f;
+					m_rotate[0] = 0.0f;
+					m_rotate[1] = 0.0f;
+					m_rotate[2] = 0.0f;
 				}
 			}
 			else if (0 == bx::strCmp(_argv[1], "orientation") )
@@ -524,7 +528,8 @@ struct View
 						{
 							float angle;
 							bx::fromString(&angle, _argv[3]);
-							*dst = bx::toRad(angle);
+							angle = bx::toRad(angle);
+							*dst = bx::wrap(angle, bx::kPi*2.0f);
 						}
 						else
 						{
@@ -877,7 +882,7 @@ struct View
 	float    m_angx;
 	float    m_angy;
 	float    m_zoom;
-	float    m_angle;
+	float    m_rotate[3];
 	float    m_orientation;
 	float    m_flipH;
 	float    m_flipV;
@@ -1289,7 +1294,7 @@ void help(const char* _error = NULL)
 
 	bx::printf(
 		  "texturev, bgfx texture viewer tool, version %d.%d.%d.\n"
-		  "Copyright 2011-2023 Branimir Karadzic. All rights reserved.\n"
+		  "Copyright 2011-2024 Branimir Karadzic. All rights reserved.\n"
 		  "License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE\n\n"
 		, BGFX_TEXTUREV_VERSION_MAJOR
 		, BGFX_TEXTUREV_VERSION_MINOR
@@ -1459,7 +1464,9 @@ int _main_(int _argc, char** _argv)
 	Interpolator scale(1.0f);
 	Interpolator posx(0.0f);
 	Interpolator posy(0.0f);
-	InterpolatorAngle angle(0.0f);
+	InterpolatorAngle rotateX(0.0f);
+	InterpolatorAngle rotateY(0.0f);
+	InterpolatorAngle rotateZ(0.0f);
 	InterpolatorAngle angx(0.0f);
 	InterpolatorAngle angy(0.0f);
 
@@ -1475,7 +1482,9 @@ int _main_(int _argc, char** _argv)
 			|| scale.isActive()
 			|| posx.isActive()
 			|| posy.isActive()
-			|| angle.isActive()
+			|| rotateX.isActive()
+			|| rotateY.isActive()
+			|| rotateZ.isActive()
 			|| angx.isActive()
 			|| angy.isActive()
 			;
@@ -1483,11 +1492,7 @@ int _main_(int _argc, char** _argv)
 
 	const char* filePath = _argc < 2 ? "" : _argv[1];
 
-	std::string path = filePath;
-	{
-		bx::FilePath fp(filePath);
-		view.updateFileList(fp);
-	}
+	view.updateFileList(filePath);
 
 	int exitcode = bx::kExitSuccess;
 	bgfx::TextureHandle texture = BGFX_INVALID_HANDLE;
@@ -1880,11 +1885,15 @@ int _main_(int _argc, char** _argv)
 
 			if (view.m_files)
 			{
+				ImGui::PushFont(ImGui::Font::Mono);
+				const float itemHeight = ImGui::GetTextLineHeightWithSpacing();
+				ImGui::PopFont();
+
 				char temp[bx::kMaxFilePath];
 				bx::snprintf(temp, BX_COUNTOF(temp), "%s##File", view.m_path.getCPtr() );
 
 				ImGui::SetNextWindowSize(
-					  ImVec2(400.0f, 400.0f)
+					  ImVec2(400.0f, 20*itemHeight)
 					, ImGuiCond_FirstUseEver
 					);
 
@@ -1893,7 +1902,6 @@ int _main_(int _argc, char** _argv)
 					if (ImGui::BeginChild("##file_list", ImVec2(0.0f, 0.0f) ) )
 					{
 						ImGui::PushFont(ImGui::Font::Mono);
-						const float itemHeight = ImGui::GetTextLineHeightWithSpacing();
 						const float listHeight =
 							  bx::max(1.0f, bx::floor(ImGui::GetWindowHeight()/itemHeight) )
 							* itemHeight
@@ -1907,26 +1915,23 @@ int _main_(int _argc, char** _argv)
 							ImGuiListClipper clipper;
 							clipper.Begin(itemCount, itemHeight);
 
-							int32_t start = clipper.DisplayStart;
-							int32_t end   = clipper.DisplayEnd;
+							const  int32_t index = int32_t(view.m_fileIndex);
+							static int32_t oldIndex  = index;
+							const  int32_t direction = bx::clamp(index - oldIndex, -1, 1);
+							oldIndex = index;
 
-							const int32_t index = int32_t(view.m_fileIndex);
-							if (index <= start)
-							{
-								ImGui::SetScrollY(ImGui::GetScrollY() - (start-index+1)*itemHeight);
-							}
-							else if (index >= end)
-							{
-								ImGui::SetScrollY(ImGui::GetScrollY() + (index-end+1)*itemHeight);
-							}
+							bool currentVisible = false;
 
 							while (clipper.Step() )
 							{
+								currentVisible |= index > clipper.DisplayStart && index < clipper.DisplayEnd;
+
 								for (int32_t pos = clipper.DisplayStart; pos < clipper.DisplayEnd; ++pos)
 								{
 									ImGui::PushID(pos);
 
-									bool isSelected = uint32_t(pos) == view.m_fileIndex;
+									bool isSelected = pos == index;
+
 									if (ImGui::Selectable(view.m_fileList[pos].c_str(), &isSelected) )
 									{
 										view.m_fileIndex = pos;
@@ -1934,6 +1939,13 @@ int _main_(int _argc, char** _argv)
 
 									ImGui::PopID();
 								}
+							}
+
+							if (0 != direction && !currentVisible)
+							{
+								const int32_t num  = int32_t(listHeight / itemHeight);
+								const int32_t posY = index + (1 == direction ? 1-num : 0);
+								ImGui::SetScrollY(posY*itemHeight);
 							}
 
 							clipper.End();
@@ -1955,7 +1967,7 @@ int _main_(int _argc, char** _argv)
 
 				ImGui::Text(
 					"texturev, bgfx texture viewer tool " ICON_KI_WRENCH ", version %d.%d.%d.\n"
-					"Copyright 2011-2023 Branimir Karadzic. All rights reserved.\n"
+					"Copyright 2011-2024 Branimir Karadzic. All rights reserved.\n"
 					"License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE\n"
 					, BGFX_TEXTUREV_VERSION_MAJOR
 					, BGFX_TEXTUREV_VERSION_MINOR
@@ -1988,7 +2000,9 @@ int _main_(int _argc, char** _argv)
 
 				keyBindingHelp("LMB+drag",  "Pan.");
 				keyBindingHelp("=/- or MW", "Zoom in/out.");
-				keyBindingHelp("z/Z",       "Rotate.");
+				keyBindingHelp("x",         "Horizontal flip (z-axis relative).");
+				keyBindingHelp("y",         "Vertical flip (z-axis relative).");
+				keyBindingHelp("z/Z",       "Rotate around Z axis.");
 				keyBindingHelp("0",         "Reset.");
 				keyBindingHelp("1",         "Fit to window.");
 				ImGui::NextLine();
@@ -2179,7 +2193,7 @@ int _main_(int _argc, char** _argv)
 			bgfx::dbgTextClear();
 
 			float orientation[16];
-			bx::mtxRotateXYZ(orientation, view.m_flipH, view.m_flipV, angle.getValue()+view.m_orientation);
+			bx::mtxRotateXYZ(orientation, rotateY.getValue()+view.m_flipH, rotateX.getValue()+view.m_flipV, rotateZ.getValue()+view.m_orientation);
 
 			if (view.m_fit)
 			{
@@ -2197,7 +2211,9 @@ int _main_(int _argc, char** _argv)
 			}
 
 			zoom.set(view.m_zoom, transitionTime);
-			angle.set(view.m_angle, transitionTime);
+			rotateX.set(view.m_rotate[0], transitionTime);
+			rotateY.set(view.m_rotate[1], transitionTime);
+			rotateZ.set(view.m_rotate[2], transitionTime);
 			angx.set(view.m_angx, transitionTime);
 			angy.set(view.m_angy, transitionTime);
 

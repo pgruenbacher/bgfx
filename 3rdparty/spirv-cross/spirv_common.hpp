@@ -220,7 +220,7 @@ static inline std::string convert_to_string(int32_t value)
 	// INT_MIN is ... special on some backends. If we use a decimal literal, and negate it, we
 	// could accidentally promote the literal to long first, then negate.
 	// To workaround it, emit int(0x80000000) instead.
-	if (value == std::numeric_limits<int32_t>::min())
+	if (value == (std::numeric_limits<int32_t>::min)())
 		return "int(0x80000000)";
 	else
 		return std::to_string(value);
@@ -231,7 +231,7 @@ static inline std::string convert_to_string(int64_t value, const std::string &in
 	// INT64_MIN is ... special on some backends.
 	// If we use a decimal literal, and negate it, we might overflow the representable numbers.
 	// To workaround it, emit int(0x80000000) instead.
-	if (value == std::numeric_limits<int64_t>::min())
+	if (value == (std::numeric_limits<int64_t>::min)())
 		return join(int64_type, "(0x8000000000000000u", (long_long_literal_suffix ? "ll" : "l"), ")");
 	else
 		return std::to_string(value) + (long_long_literal_suffix ? "ll" : "l");
@@ -548,6 +548,9 @@ struct SPIRType : IVariant
 		type = TypeType
 	};
 
+	spv::Op op = spv::Op::OpNop;
+	explicit SPIRType(spv::Op op_) : op(op_) {}
+
 	enum BaseType
 	{
 		Unknown,
@@ -618,7 +621,7 @@ struct SPIRType : IVariant
 		uint32_t sampled;
 		spv::ImageFormat format;
 		spv::AccessQualifier access;
-	} image;
+	} image = {};
 
 	// Structs can be declared multiple times if they are used as part of interface blocks.
 	// We want to detect this so that we only emit the struct definition once.
@@ -1117,6 +1120,9 @@ struct SPIRVariable : IVariant
 	bool loop_variable = false;
 	// Set to true while we're inside the for loop.
 	bool loop_variable_enable = false;
+
+	// Used to find global LUTs
+	bool is_written_to = false;
 
 	SPIRFunction::Parameter *parameter = nullptr;
 
@@ -1665,6 +1671,8 @@ enum ExtendedDecorations
 	// lack of constructors in the 'threadgroup' address space.
 	SPIRVCrossDecorationWorkgroupStruct,
 
+	SPIRVCrossDecorationOverlappingBinding,
+
 	SPIRVCrossDecorationCount
 };
 
@@ -1693,6 +1701,7 @@ struct Meta
 		uint32_t index = 0;
 		spv::FPRoundingMode fp_rounding_mode = spv::FPRoundingModeMax;
 		bool builtin = false;
+		bool qualified_alias_explicit_override = false;
 
 		struct Extended
 		{

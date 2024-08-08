@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 Branimir Karadzic. All rights reserved.
+ * Copyright 2011-2024 Branimir Karadzic. All rights reserved.
  * License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE
  */
 
@@ -1274,6 +1274,13 @@ namespace bgfx { namespace gl
 	static uint64_t s_vertexAttribArraysPendingDisable   = 0;
 	static uint64_t s_vertexAttribArraysPendingEnable    = 0;
 
+	void initLazyEnabledVertexAttributes()
+	{
+		s_currentlyEnabledVertexAttribArrays = 0;
+		s_vertexAttribArraysPendingDisable   = 0;
+		s_vertexAttribArraysPendingEnable    = 0;
+	}
+
 	void lazyEnableVertexAttribArray(GLuint index)
 	{
 		if (BX_ENABLED(BX_PLATFORM_EMSCRIPTEN) )
@@ -1324,7 +1331,7 @@ namespace bgfx { namespace gl
 		{
 			while (s_vertexAttribArraysPendingDisable)
 			{
-				uint32_t index = bx::uint32_cnttz(s_vertexAttribArraysPendingDisable);
+				uint32_t index = bx::countTrailingZeros(s_vertexAttribArraysPendingDisable);
 				uint64_t mask  = ~(UINT64_C(1) << index);
 				s_vertexAttribArraysPendingDisable   &= mask;
 				s_currentlyEnabledVertexAttribArrays &= mask;
@@ -1333,7 +1340,7 @@ namespace bgfx { namespace gl
 
 			while (s_vertexAttribArraysPendingEnable)
 			{
-				uint32_t index = bx::uint32_cnttz(s_vertexAttribArraysPendingEnable);
+				uint32_t index = bx::countTrailingZeros(s_vertexAttribArraysPendingEnable);
 				uint64_t mask  = UINT64_C(1) << index;
 				s_vertexAttribArraysPendingEnable    &= ~mask;
 				s_currentlyEnabledVertexAttribArrays |= mask;
@@ -1851,7 +1858,7 @@ namespace bgfx { namespace gl
 		if (_array)
 		{
 			glTexStorage3D(target
-				, 1 + GLsizei(bx::log2( (int32_t)_dim) )
+				, 1 + GLsizei(bx::ceilLog2( (int32_t)_dim) )
 				, internalFmt
 				, _dim
 				, _dim
@@ -2264,6 +2271,8 @@ namespace bgfx { namespace gl
 			};
 
 			ErrorState::Enum errorState = ErrorState::Default;
+
+			initLazyEnabledVertexAttributes();
 
 			if (_init.debug
 			||  _init.profile)
@@ -2947,6 +2956,7 @@ namespace bgfx { namespace gl
 				if (m_vaoSupport)
 				{
 					GL_CHECK(glGenVertexArrays(1, &m_vao) );
+					GL_CHECK(glBindVertexArray(m_vao) );
 				}
 
 				m_samplerObjectSupport = false
@@ -3659,13 +3669,9 @@ namespace bgfx { namespace gl
 		void submitBlit(BlitState& _bs, uint16_t _view);
 
 		void submit(Frame* _render, ClearQuad& _clearQuad, TextVideoMemBlitter& _textVideoMemBlitter) override;
+
 		void blitSetup(TextVideoMemBlitter& _blitter) override
 		{
-			if (0 != m_vao)
-			{
-				GL_CHECK(glBindVertexArray(m_vao) );
-			}
-
 			uint32_t width  = m_resolution.width;
 			uint32_t height = m_resolution.height;
 
@@ -3840,6 +3846,13 @@ namespace bgfx { namespace gl
 					m_glctx.makeCurrent(NULL);
 					m_currentFbo = frameBuffer.m_fbo[0];
 				}
+			}
+
+			if (0 != m_vao)
+			{
+				GL_CHECK(glDeleteVertexArrays(1, &m_vao) );
+				GL_CHECK(glGenVertexArrays(1, &m_vao) );
+				GL_CHECK(glBindVertexArray(m_vao) );
 			}
 
 			if (m_srgbWriteControlSupport)
@@ -4543,10 +4556,9 @@ namespace bgfx { namespace gl
 			}
 			else
 			{
-				const GLuint defaultVao = m_vao;
-				if (0 != defaultVao)
+				if (0 != m_vao)
 				{
-					GL_CHECK(glBindVertexArray(defaultVao) );
+					GL_CHECK(glBindVertexArray(m_vao) );
 				}
 
 				GL_CHECK(glDisable(GL_SCISSOR_TEST) );
@@ -6534,6 +6546,7 @@ namespace bgfx { namespace gl
 						|| usesVertexID
 						|| usesUint
 						|| usesTexelFetch
+					    || usesGpuShader4
 						|| usesGpuShader5
 						|| usesInterpQ
 						? 130
@@ -7456,19 +7469,9 @@ namespace bgfx { namespace gl
 
 		BGFX_GL_PROFILER_BEGIN_LITERAL("rendererSubmit", kColorView);
 
-		if (1 < m_numWindows
-		&&  m_vaoSupport)
+		if (0 != m_vao)
 		{
-			m_vaoSupport = false;
-			GL_CHECK(glBindVertexArray(0) );
-			GL_CHECK(glDeleteVertexArrays(1, &m_vao) );
-			m_vao = 0;
-		}
-
-		const GLuint defaultVao = m_vao;
-		if (0 != defaultVao)
-		{
-			GL_CHECK(glBindVertexArray(defaultVao) );
+			GL_CHECK(glBindVertexArray(m_vao) );
 		}
 
 		GL_CHECK(glBindFramebuffer(GL_FRAMEBUFFER, m_backBufferFbo) );
@@ -7735,7 +7738,7 @@ namespace bgfx { namespace gl
 									GL_CHECK(glBindBuffer(GL_DISPATCH_INDIRECT_BUFFER, vb.m_id) );
 								}
 
-								uint32_t numDrawIndirect = UINT16_MAX == compute.m_numIndirect
+								uint32_t numDrawIndirect = UINT32_MAX == compute.m_numIndirect
 									? vb.m_size/BGFX_CONFIG_DRAW_INDIRECT_STRIDE
 									: compute.m_numIndirect
 									;
@@ -8407,7 +8410,7 @@ namespace bgfx { namespace gl
 									: GL_UNSIGNED_INT
 									;
 
-								numDrawIndirect = UINT16_MAX == draw.m_numIndirect
+								numDrawIndirect = UINT32_MAX == draw.m_numIndirect
 									? vb.m_size/BGFX_CONFIG_DRAW_INDIRECT_STRIDE
 									: draw.m_numIndirect
 									;
@@ -8434,7 +8437,7 @@ namespace bgfx { namespace gl
 							}
 							else
 							{
-								numDrawIndirect = UINT16_MAX == draw.m_numIndirect
+								numDrawIndirect = UINT32_MAX == draw.m_numIndirect
 									? vb.m_size/BGFX_CONFIG_DRAW_INDIRECT_STRIDE
 									: draw.m_numIndirect
 									;
@@ -8556,11 +8559,6 @@ namespace bgfx { namespace gl
 			submitBlit(bs, BGFX_CONFIG_MAX_VIEWS);
 
 			blitMsaaFbo();
-
-			if (m_vaoSupport)
-			{
-				GL_CHECK(glBindVertexArray(m_vao) );
-			}
 
 			if (0 < _render->m_numRenderItems)
 			{
@@ -8818,6 +8816,11 @@ namespace bgfx { namespace gl
 			blit(this, _textVideoMemBlitter, _render->m_textVideoMem);
 
 			BGFX_GL_PROFILER_END();
+		}
+
+		if (0 != m_vao)
+		{
+			GL_CHECK(glBindVertexArray(0) );
 		}
 	}
 } } // namespace bgfx
