@@ -7486,6 +7486,7 @@ VK_DESTROY
 		m_sci.imageExtent.width  = width;
 		m_sci.imageExtent.height = height;
 		m_sci.imageUsage         = imageUsage;
+		m_sci.preTransform       = VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR;  // <-- Here
 		m_sci.compositeAlpha     = compositeAlpha;
 		m_sci.presentMode        = s_presentMode[presentModeIdx].mode;
 		m_sci.clipped            = VK_FALSE;
