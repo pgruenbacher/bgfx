@@ -6,7 +6,7 @@
 #ifndef BGFX_RENDERER_GL_H_HEADER_GUARD
 #define BGFX_RENDERER_GL_H_HEADER_GUARD
 
-#define BGFX_USE_EGL ( (BGFX_CONFIG_RENDERER_OPENGLES) && (0 \
+#define BGFX_USE_EGL ( (BGFX_CONFIG_RENDERER_OPENGL || BGFX_CONFIG_RENDERER_OPENGLES) && (0 \
 	|| BX_PLATFORM_ANDROID                                                                  \
 	|| BX_PLATFORM_LINUX                                                                    \
 	|| BX_PLATFORM_NX                                                                       \
@@ -16,12 +16,6 @@
 #define BGFX_USE_HTML5 (BGFX_CONFIG_RENDERER_OPENGLES && (0 \
 	|| BX_PLATFORM_EMSCRIPTEN                               \
 	) )
-
-#define BGFX_USE_GLX (BGFX_CONFIG_RENDERER_OPENGL && (0 \
-	|| BX_PLATFORM_BSD                                  \
-	|| BX_PLATFORM_LINUX                                \
-	) )
-
 
 #define BGFX_USE_WGL (BGFX_CONFIG_RENDERER_OPENGL && (0 \
 	|| BX_PLATFORM_WINDOWS                              \
@@ -1135,8 +1129,6 @@ typedef uint64_t GLuint64;
 
 #if BGFX_USE_EGL
 #	include "glcontext_egl.h"
-#elif BGFX_USE_GLX
-#	include "glcontext_glx.h"
 #elif BGFX_USE_HTML5
 #	include "glcontext_html5.h"
 #elif BGFX_USE_WGL
