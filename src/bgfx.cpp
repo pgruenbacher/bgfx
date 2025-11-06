@@ -2806,6 +2806,8 @@ namespace bgfx
 		}
 	}
 
+	void validateCmdBuffer(const CommandBuffer& cmd);
+
 	void Context::rendererExecCommands(CommandBuffer& _cmdbuf)
 	{
 		_cmdbuf.reset();
@@ -2854,6 +2856,8 @@ namespace bgfx
 			}
 		}
 
+		validateCmdBuffer(_cmdbuf);
+
 		do
 		{
 			uint8_t command;
@@ -2861,6 +2865,8 @@ namespace bgfx
 
 			switch (command)
 			{
+			case CommandBuffer::RendererInit:
+				return;
 			case CommandBuffer::RendererShutdownBegin:
 				{
 					BX_ASSERT(m_rendererInitialized, "This shouldn't happen! Bad synchronization?");
@@ -5928,5 +5934,439 @@ namespace bgfx
 	};
 
 } // namespace bgfx
+
+#include <iostream>
+namespace bgfx {
+
+	struct CmdReader {
+	    const CommandBuffer& buf;
+	    uint32_t m_pos = 0;
+
+	    CmdReader(const CommandBuffer& b) : buf(b), m_pos(0) {}
+
+	    template<typename T>
+	    void read(T& out) {
+			align(BX_ALIGNOF(T) );
+			read(reinterpret_cast<uint8_t*>(&out), sizeof(T) );
+	    }
+
+		void read(void* _data, uint32_t _size)
+		{
+			bx::memCopy(_data, &buf.m_buffer[m_pos], _size);
+			m_pos += _size;
+		}
+
+		void align(uint32_t _alignment)
+		{
+			const uint32_t mask = _alignment-1;
+			const uint32_t pos = (m_pos+mask) & (~mask);
+			m_pos = pos;
+		}
+
+	    void readBytes(void* dst, size_t n) {
+	        m_pos += (uint32_t)n;
+	    }
+
+	    void skip(size_t n) {
+
+	        // BX_ASSERT(m_pos + n <= buf.m_pos, "Skip overflow");
+	        m_pos += (uint32_t)n;
+	    }
+
+	    template<typename T> 
+	    void skip() { 
+			align(BX_ALIGNOF(T) );
+	    	skip(sizeof(T)); 
+	    }
+	};
+
+	void validateCmdBuffer(const CommandBuffer& cmd) {
+		// from the beginning 
+		CmdReader reader(cmd);
+
+		if (cmd.m_size == 0) return;
+
+		bool end = false;
+
+		do
+		{
+			uint8_t command;
+			// actually read it first
+			bx::memCopy(&command, &cmd.m_buffer[reader.m_pos], sizeof(uint32_t) );
+			reader.read(command);
+
+
+			switch (command)
+			{
+			case CommandBuffer::RendererInit:
+				return;
+			case CommandBuffer::RendererShutdownBegin:
+				break;
+
+			case CommandBuffer::RendererShutdownEnd:
+
+			case CommandBuffer::End:
+				end = true;
+				break;
+
+			case CommandBuffer::CreateIndexBuffer:
+				{
+					IndexBufferHandle handle;
+					reader.read(handle);
+					const Memory* mem;
+					reader.read(mem);
+					uint16_t flags;
+					reader.read(flags);
+				}
+				break;
+
+			case CommandBuffer::DestroyIndexBuffer:
+				{
+
+					IndexBufferHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateVertexLayout:
+				{
+					VertexLayoutHandle handle;
+					reader.read(handle);
+					VertexLayout layout;
+					reader.read(layout);
+				}
+				break;
+
+			case CommandBuffer::DestroyVertexLayout:
+				{
+
+					VertexLayoutHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateVertexBuffer:
+				{
+					VertexBufferHandle handle;
+					reader.read(handle);
+
+					const Memory* mem;
+					reader.read(mem);
+
+					VertexLayoutHandle layoutHandle;
+					reader.read(layoutHandle);
+
+					uint16_t flags;
+					reader.read(flags);
+				}
+				break;
+
+			case CommandBuffer::DestroyVertexBuffer:
+				{
+					VertexBufferHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateDynamicIndexBuffer:
+				{
+					IndexBufferHandle handle;
+					reader.read(handle);
+					uint32_t size;
+					reader.read(size);
+					uint16_t flags;
+					reader.read(flags);
+				}
+				break;
+
+			case CommandBuffer::UpdateDynamicIndexBuffer:
+				{
+					IndexBufferHandle handle;
+					reader.read(handle);
+
+					uint32_t offset;
+					reader.read(offset);
+
+					uint32_t size;
+					reader.read(size);
+
+					const Memory* mem;
+					reader.read(mem);
+				}
+				break;
+
+			case CommandBuffer::DestroyDynamicIndexBuffer:
+				{
+					IndexBufferHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateDynamicVertexBuffer:
+				{
+					VertexBufferHandle handle;
+					reader.read(handle);
+
+					uint32_t size;
+					reader.read(size);
+
+					uint16_t flags;
+					reader.read(flags);
+				}
+				break;
+
+			case CommandBuffer::UpdateDynamicVertexBuffer:
+				{
+
+					VertexBufferHandle handle;
+					reader.read(handle);
+
+					uint32_t offset;
+					reader.read(offset);
+
+					uint32_t size;
+					reader.read(size);
+
+					const Memory* mem;
+					reader.read(mem);
+				}
+				break;
+
+			case CommandBuffer::DestroyDynamicVertexBuffer:
+				{
+
+					VertexBufferHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateShader:
+				{
+
+					ShaderHandle handle;
+					reader.read(handle);
+
+					const Memory* mem;
+					reader.read(mem);
+				}
+				break;
+
+			case CommandBuffer::DestroyShader:
+				{
+
+					ShaderHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateProgram:
+				{
+
+					ProgramHandle handle;
+					reader.read(handle);
+
+					ShaderHandle vsh;
+					reader.read(vsh);
+
+					ShaderHandle fsh;
+					reader.read(fsh);
+				}
+				break;
+
+			case CommandBuffer::DestroyProgram:
+				{
+
+					ProgramHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateTexture:
+				{
+
+					TextureHandle handle;
+					reader.read(handle);
+
+					const Memory* mem;
+					reader.read(mem);
+
+					uint64_t flags;
+					reader.read(flags);
+
+					uint8_t skip;
+					reader.read(skip);
+				}
+				break;
+
+			case CommandBuffer::UpdateTexture:
+				{
+					TextureHandle handle;
+					reader.read(handle);
+
+					uint8_t side;
+					reader.read(side);
+
+					uint8_t mip;
+					reader.read(mip);
+
+					reader.skip<Rect>();
+					reader.skip<uint16_t>();
+					reader.skip<uint16_t>();
+					reader.skip<uint16_t>();
+					reader.skip<Memory*>();
+
+				}
+				break;
+
+			case CommandBuffer::ReadTexture:
+				{
+					TextureHandle handle;
+					reader.read(handle);
+
+					void* data;
+					reader.read(data);
+
+					uint8_t mip;
+					reader.read(mip);
+
+				}
+				break;
+
+			case CommandBuffer::ResizeTexture:
+				{
+					TextureHandle handle;
+					reader.read(handle);
+
+					uint16_t width;
+					reader.read(width);
+
+					uint16_t height;
+					reader.read(height);
+
+					uint8_t numMips;
+					reader.read(numMips);
+
+					uint16_t numLayers;
+					reader.read(numLayers);
+				}
+				break;
+
+			case CommandBuffer::DestroyTexture:
+				{
+
+					TextureHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateFrameBuffer:
+				{
+
+					FrameBufferHandle handle;
+					reader.read(handle);
+
+					bool window;
+					reader.read(window);
+
+					if (window)
+					{
+						void* nwh;
+						reader.read(nwh);
+
+						uint16_t width;
+						reader.read(width);
+
+						uint16_t height;
+						reader.read(height);
+
+						TextureFormat::Enum format;
+						reader.read(format);
+
+						TextureFormat::Enum depthFormat;
+						reader.read(depthFormat);
+					}
+					else
+					{
+						uint8_t num;
+						reader.read(num);
+
+						Attachment attachment[BGFX_CONFIG_MAX_FRAME_BUFFER_ATTACHMENTS];
+						reader.read(attachment, sizeof(Attachment) * num);
+					}
+				}
+				break;
+
+			case CommandBuffer::DestroyFrameBuffer:
+				{
+					FrameBufferHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::CreateUniform:
+				{
+					UniformHandle handle;
+					reader.read(handle);
+
+					UniformType::Enum type;
+					reader.read(type);
+
+					uint16_t num;
+					reader.read(num);
+
+					uint8_t len;
+					reader.read(len);
+
+					reader.skip(len);
+				}
+				break;
+
+			case CommandBuffer::DestroyUniform:
+				{
+					UniformHandle handle;
+					reader.read(handle);
+				}
+				break;
+
+			case CommandBuffer::UpdateViewName:
+				{
+					ViewId id;
+					reader.read(id);
+
+					uint16_t len;
+					reader.read(len);
+
+					reader.skip(len);
+
+				}
+				break;
+
+			case CommandBuffer::InvalidateOcclusionQuery:
+				{
+					OcclusionQueryHandle handle;
+					reader.read(handle);
+
+				}
+				break;
+
+			case CommandBuffer::SetName:
+				{
+					Handle handle;
+					reader.read(handle);
+
+					uint16_t len;
+					reader.read(len);
+
+					reader.skip(len);
+				}
+				break;
+
+			default:
+				BX_ASSERT(false, "Invalid command: %d", command);
+				break;
+			}
+		} while (!end);
+	}
+} // namespace 
 
 #include "bgfx.idl.inl"

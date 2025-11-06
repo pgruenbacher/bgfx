@@ -1033,6 +1033,7 @@ namespace bgfx
 		uint32_t m_minCapacity;
 	};
 
+
 	//
 	constexpr uint8_t  kSortKeyViewNumBits         = uint8_t(31 - bx::uint32_cntlz(BGFX_CONFIG_MAX_VIEWS) );
 	constexpr uint8_t  kSortKeyViewBitShift        = 64-kSortKeyViewNumBits;
@@ -3120,6 +3121,7 @@ namespace bgfx
 	{
 	}
 
+	void validateCmdBuffer(const CommandBuffer& cmd);
 	void rendererUpdateUniforms(RendererContextI* _renderCtx, UniformBuffer* _uniformBuffer, uint32_t _begin, uint32_t _end);
 
 #if BGFX_CONFIG_DEBUG
@@ -3174,6 +3176,7 @@ namespace bgfx
 		CommandBuffer& getCommandBuffer(CommandBuffer::Enum _cmd)
 		{
 			CommandBuffer& cmdbuf = _cmd < CommandBuffer::End ? m_submit->m_cmdPre : m_submit->m_cmdPost;
+			validateCmdBuffer(cmdbuf);
 			uint8_t cmd = (uint8_t)_cmd;
 			cmdbuf.write(cmd);
 			return cmdbuf;
