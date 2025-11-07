@@ -870,6 +870,9 @@ namespace bgfx
 			, m_pos(0)
 			, m_size(0)
 			, m_minCapacity(0)
+#if BGFX_CONFIG_DEBUG
+			, m_writerCount(0)
+#endif // BGFX_CONFIG_DEBUG
 		{
 			resize();
 			finish();
@@ -1031,8 +1034,63 @@ namespace bgfx
 		uint32_t m_size;
 		uint32_t m_capacity;
 		uint32_t m_minCapacity;
+#if BGFX_CONFIG_DEBUG
+		mutable int32_t m_writerCount; // Atomic counter to track concurrent writers
+#endif // BGFX_CONFIG_DEBUG
 	};
 
+	///
+	/// Scoped wrapper that tracks concurrent access to CommandBuffer
+	///
+	class ScopedCommandBufferWriter
+	{
+		BX_CLASS(ScopedCommandBufferWriter
+			, NO_DEFAULT_CTOR
+			);
+
+	public:
+		ScopedCommandBufferWriter(CommandBuffer& _cmdBuf)
+			: m_cmdBuf(_cmdBuf)
+		{
+#if BGFX_CONFIG_DEBUG
+			int32_t prevCount = bx::atomicFetchAndAdd(&m_cmdBuf.m_writerCount, 1);
+			BX_ASSERT(prevCount == 0
+				, "Multiple concurrent writers detected on CommandBuffer! Previous count: %d"
+				, prevCount
+				);
+#endif // BGFX_CONFIG_DEBUG
+		}
+
+		// Move constructor to allow returning by value
+		ScopedCommandBufferWriter(ScopedCommandBufferWriter&& _other)
+			: m_cmdBuf(_other.m_cmdBuf)
+		{
+			// Don't increment/decrement - just transfer ownership
+		}
+
+		~ScopedCommandBufferWriter()
+		{
+#if BGFX_CONFIG_DEBUG
+			bx::atomicFetchAndSub(&m_cmdBuf.m_writerCount, 1);
+#endif // BGFX_CONFIG_DEBUG
+		}
+
+		void write(const void* _data, uint32_t _size) {
+			m_cmdBuf.write(_data, _size);
+		}
+
+		template<typename Type>
+		void write(const Type& _in) {
+			m_cmdBuf.write(_in);
+		}
+
+		void write(const bx::StringView& _str) {
+			m_cmdBuf.write(_str);
+		}
+
+	public:
+		CommandBuffer& m_cmdBuf;
+	};
 
 	//
 	constexpr uint8_t  kSortKeyViewNumBits         = uint8_t(31 - bx::uint32_cntlz(BGFX_CONFIG_MAX_VIEWS) );
@@ -3122,6 +3180,9 @@ namespace bgfx
 	}
 
 	void validateCmdBuffer(const CommandBuffer& cmd);
+	inline void validateCmdBuffer(const ScopedCommandBufferWriter& cmd) {
+		validateCmdBuffer(cmd.m_cmdBuf);
+	}
 	void rendererUpdateUniforms(RendererContextI* _renderCtx, UniformBuffer* _uniformBuffer, uint32_t _begin, uint32_t _end);
 
 #if BGFX_CONFIG_DEBUG
@@ -3173,16 +3234,16 @@ namespace bgfx
 		bool init(const Init& _init);
 		void shutdown();
 
-		CommandBuffer& getCommandBuffer(CommandBuffer::Enum _cmd)
+		ScopedCommandBufferWriter getCommandBuffer(CommandBuffer::Enum _cmd)
 		{
-
-			BGFX_MUTEX_SCOPE(m_resourceApiLock); // trigger deadlock if invalid access of command buffer writing?
-
 			CommandBuffer& cmdbuf = _cmd < CommandBuffer::End ? m_submit->m_cmdPre : m_submit->m_cmdPost;
 			validateCmdBuffer(cmdbuf);
+
+			ScopedCommandBufferWriter writer(cmdbuf);
+
 			uint8_t cmd = (uint8_t)_cmd;
-			cmdbuf.write(cmd);
-			return cmdbuf;
+			writer.write(cmd);
+			return writer;
 		}
 
 		BGFX_API_FUNC(void reset(uint32_t _width, uint32_t _height, uint32_t _flags, TextureFormat::Enum _format) )
@@ -3345,14 +3406,16 @@ namespace bgfx
 				ib.m_size  = _mem->size;
 				ib.m_flags = _flags;
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateIndexBuffer);
-				cmdbuf.write(handle);
-				cmdbuf.write(_mem);
-				cmdbuf.write(_flags);
+				{					
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateIndexBuffer);
+					cmdbuf.write(handle);
+					cmdbuf.write(_mem);
+					cmdbuf.write(_flags);
+					validateCmdBuffer(cmdbuf);
+				}
 
 				setDebugNameForHandle(handle);
 
-				validateCmdBuffer(cmdbuf);
 			}
 			else
 			{
@@ -3385,7 +3448,7 @@ namespace bgfx
 			IndexBuffer& ref = m_indexBuffers[_handle.idx];
 			ref.m_name.clear();
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyIndexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyIndexBuffer);
 			cmdbuf.write(_handle);
 
 			validateCmdBuffer(cmdbuf);
@@ -3407,7 +3470,7 @@ namespace bgfx
 				return BGFX_INVALID_HANDLE;
 			}
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateVertexLayout);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::CreateVertexLayout);
 			cmdbuf.write(layoutHandle);
 			cmdbuf.write(_layout);
 
@@ -3467,15 +3530,17 @@ namespace bgfx
 				vb.m_size   = _mem->size;
 				vb.m_stride = _layout.m_stride;
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateVertexBuffer);
-				cmdbuf.write(handle);
-				cmdbuf.write(_mem);
-				cmdbuf.write(layoutHandle);
-				cmdbuf.write(_flags);
+				{					
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateVertexBuffer);
+					cmdbuf.write(handle);
+					cmdbuf.write(_mem);
+					cmdbuf.write(layoutHandle);
+					cmdbuf.write(_flags);
+					validateCmdBuffer(cmdbuf);
+				}
 
 				setDebugNameForHandle(handle);
 
-				validateCmdBuffer(cmdbuf);
 
 				return handle;
 			}
@@ -3509,7 +3574,7 @@ namespace bgfx
 			VertexBuffer& ref = m_vertexBuffers[_handle.idx];
 			ref.m_name.clear();
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexBuffer);
 			cmdbuf.write(_handle);
 
 			validateCmdBuffer(cmdbuf);
@@ -3520,7 +3585,7 @@ namespace bgfx
 			VertexLayoutHandle layoutHandle = m_vertexLayoutRef.release(_handle);
 			if (isValid(layoutHandle) )
 			{
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexLayout);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexLayout);
 				cmdbuf.write(layoutHandle);
 				m_render->free(layoutHandle);
 			}
@@ -3545,7 +3610,7 @@ namespace bgfx
 				IndexBuffer& ib = m_indexBuffers[indexBufferHandle.idx];
 				ib.m_size = allocSize;
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicIndexBuffer);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicIndexBuffer);
 				cmdbuf.write(indexBufferHandle);
 				cmdbuf.write(allocSize);
 				cmdbuf.write(_flags);
@@ -3571,10 +3636,12 @@ namespace bgfx
 			IndexBuffer& ib = m_indexBuffers[indexBufferHandle.idx];
 			ib.m_size = _size;
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicIndexBuffer);
-			cmdbuf.write(indexBufferHandle);
-			cmdbuf.write(_size);
-			cmdbuf.write(_flags);
+			{				
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicIndexBuffer);
+				cmdbuf.write(indexBufferHandle);
+				cmdbuf.write(_size);
+				cmdbuf.write(_flags);
+			}
 
 			setDebugNameForHandle(indexBufferHandle, "Dynamic Index Buffer");
 
@@ -3671,7 +3738,7 @@ namespace bgfx
 				, size
 				, _mem->size
 				);
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::UpdateDynamicIndexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::UpdateDynamicIndexBuffer);
 			cmdbuf.write(dib.m_handle);
 			cmdbuf.write(offset);
 			cmdbuf.write(size);
@@ -3733,7 +3800,7 @@ namespace bgfx
 				vb.m_size   = allocSize;
 				vb.m_stride = 0;
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
 				cmdbuf.write(vertexBufferHandle);
 				cmdbuf.write(allocSize);
 				cmdbuf.write(_flags);
@@ -3759,10 +3826,12 @@ namespace bgfx
 			vb.m_size   = _size;
 			vb.m_stride = 0;
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
-			cmdbuf.write(vertexBufferHandle);
-			cmdbuf.write(_size);
-			cmdbuf.write(_flags);
+			{				
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
+				cmdbuf.write(vertexBufferHandle);
+				cmdbuf.write(_size);
+				cmdbuf.write(_flags);
+			}
 
 			setDebugNameForHandle(vertexBufferHandle, "Dynamic Vertex Buffer");
 
@@ -3872,7 +3941,7 @@ namespace bgfx
 				, _mem->size
 				);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::UpdateDynamicVertexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::UpdateDynamicVertexBuffer);
 			cmdbuf.write(dvb.m_handle);
 			cmdbuf.write(offset);
 			cmdbuf.write(size);
@@ -3915,7 +3984,7 @@ namespace bgfx
 
 			if (isValid(layoutHandle) )
 			{
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexLayout);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexLayout);
 				cmdbuf.write(layoutHandle);
 				m_render->free(layoutHandle);
 			}
@@ -3950,11 +4019,13 @@ namespace bgfx
 			BX_WARN(isValid(handle), "Failed to allocate transient index buffer handle.");
 			if (isValid(handle) )
 			{
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicIndexBuffer);
-				cmdbuf.write(handle);
-				cmdbuf.write(_size);
-				uint16_t flags = BGFX_BUFFER_NONE;
-				cmdbuf.write(flags);
+				{					
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicIndexBuffer);
+					cmdbuf.write(handle);
+					cmdbuf.write(_size);
+					uint16_t flags = BGFX_BUFFER_NONE;
+					cmdbuf.write(flags);
+				}
 
 				const uint32_t size = 0
 					+ bx::alignUp<uint32_t>(sizeof(TransientIndexBuffer), 16)
@@ -3973,7 +4044,7 @@ namespace bgfx
 
 		void destroyTransientIndexBuffer(TransientIndexBuffer* _tib)
 		{
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyDynamicIndexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyDynamicIndexBuffer);
 			cmdbuf.write(_tib->handle);
 
 			m_submit->free(_tib->handle);
@@ -4017,11 +4088,13 @@ namespace bgfx
 					stride = _layout->m_stride;
 				}
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
-				cmdbuf.write(handle);
-				cmdbuf.write(_size);
-				uint16_t flags = BGFX_BUFFER_NONE;
-				cmdbuf.write(flags);
+				{					
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
+					cmdbuf.write(handle);
+					cmdbuf.write(_size);
+					uint16_t flags = BGFX_BUFFER_NONE;
+					cmdbuf.write(flags);
+				}
 
 				const uint32_t size = 0
 					+ bx::alignUp<uint32_t>(sizeof(TransientVertexBuffer), 16)
@@ -4043,7 +4116,7 @@ namespace bgfx
 
 		void destroyTransientVertexBuffer(TransientVertexBuffer* _tvb)
 		{
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyDynamicVertexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyDynamicVertexBuffer);
 			cmdbuf.write(_tvb->handle);
 
 			m_submit->free(_tvb->handle);
@@ -4083,6 +4156,7 @@ namespace bgfx
 
 		IndirectBufferHandle createIndirectBuffer(uint32_t _num)
 		{
+			BGFX_MUTEX_SCOPE(m_resourceApiLock);
 			BX_UNUSED(_num);
 			IndirectBufferHandle handle = { m_vertexBufferHandle.alloc() };
 
@@ -4092,7 +4166,7 @@ namespace bgfx
 				uint32_t size  = _num * BGFX_CONFIG_DRAW_INDIRECT_STRIDE;
 				uint16_t flags = BGFX_BUFFER_DRAW_INDIRECT;
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateDynamicVertexBuffer);
 				cmdbuf.write(handle);
 				cmdbuf.write(size);
 				cmdbuf.write(flags);
@@ -4103,10 +4177,11 @@ namespace bgfx
 
 		void destroyIndirectBuffer(IndirectBufferHandle _handle)
 		{
+			BGFX_MUTEX_SCOPE(m_resourceApiLock);
 			VertexBufferHandle handle = { _handle.idx };
 			BGFX_CHECK_HANDLE("destroyDrawIndirectBuffer", m_vertexBufferHandle, handle);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyDynamicVertexBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyDynamicVertexBuffer);
 			cmdbuf.write(handle);
 			m_submit->free(handle);
 		}
@@ -4261,10 +4336,11 @@ namespace bgfx
 				sr.m_uniforms = (UniformHandle*)bx::alloc(g_allocator, size);
 				bx::memCopy(sr.m_uniforms, uniforms, size);
 			}
-
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateShader);
-			cmdbuf.write(handle);
-			cmdbuf.write(_mem);
+			{				
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateShader);
+				cmdbuf.write(handle);
+				cmdbuf.write(_mem);
+			}
 
 			setDebugNameForHandle(handle);
 
@@ -4300,7 +4376,7 @@ namespace bgfx
 				, &_name
 				);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::SetName);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::SetName);
 			cmdbuf.write(_handle);
 			cmdbuf.write(len);
 			cmdbuf.write(tmp, len);
@@ -4361,7 +4437,7 @@ namespace bgfx
 				bool ok = m_submit->free(_handle); BX_UNUSED(ok);
 				BX_ASSERT(ok, "Shader handle %d is already destroyed!", _handle.idx);
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyShader);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyShader);
 				cmdbuf.write(_handle);
 
 				if (0 != sr.m_num)
@@ -4425,7 +4501,7 @@ namespace bgfx
 					bool ok = m_programHashMap.insert(key, handle.idx);
 					BX_ASSERT(ok, "Program already exists (key: %x, handle: %3d)!", key, handle.idx); BX_UNUSED(ok);
 
-					CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateProgram);
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateProgram);
 					cmdbuf.write(handle);
 					cmdbuf.write(_vsh);
 					cmdbuf.write(_fsh);
@@ -4477,7 +4553,7 @@ namespace bgfx
 					bool ok = m_programHashMap.insert(key, handle.idx);
 					BX_ASSERT(ok, "Program already exists (key: %x, handle: %3d)!", key, handle.idx); BX_UNUSED(ok);
 
-					CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateProgram);
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateProgram);
 					cmdbuf.write(handle);
 					cmdbuf.write(_vsh);
 					cmdbuf.write(fsh);
@@ -4512,7 +4588,7 @@ namespace bgfx
 				bool ok = m_submit->free(_handle); BX_UNUSED(ok);
 				BX_ASSERT(ok, "Program handle %d is already destroyed!", _handle.idx);
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyProgram);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyProgram);
 				cmdbuf.write(_handle);
 
 				m_programHashMap.removeByHandle(_handle.idx);
@@ -4592,11 +4668,13 @@ namespace bgfx
 				m_textureMemoryUsed += int64_t(ref.m_storageSize);
 			}
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateTexture);
-			cmdbuf.write(handle);
-			cmdbuf.write(_mem);
-			cmdbuf.write(_flags);
-			cmdbuf.write(_skip);
+			{				
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateTexture);
+				cmdbuf.write(handle);
+				cmdbuf.write(_mem);
+				cmdbuf.write(_flags);
+				cmdbuf.write(_skip);
+			}
 
 			setDebugNameForHandle(handle);
 
@@ -4655,7 +4733,7 @@ namespace bgfx
 			BX_ASSERT(_mip < ref.m_numMips, "Invalid mip: %d num mips:", _mip, ref.m_numMips);
 			BX_UNUSED(ref);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::ReadTexture);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::ReadTexture);
 			cmdbuf.write(_handle);
 			cmdbuf.write(_data);
 			cmdbuf.write(_mip);
@@ -4677,7 +4755,7 @@ namespace bgfx
 				, bimg::getName(bimg::TextureFormat::Enum(ref.m_format) )
 				);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::ResizeTexture);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::ResizeTexture);
 			cmdbuf.write(_handle);
 			cmdbuf.write(_width);
 			cmdbuf.write(_height);
@@ -4721,7 +4799,7 @@ namespace bgfx
 				bool ok = m_submit->free(_handle); BX_UNUSED(ok);
 				BX_ASSERT(ok, "Texture handle %d is already destroyed!", _handle.idx);
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyTexture);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyTexture);
 				cmdbuf.write(_handle);
 			}
 		}
@@ -4750,7 +4828,7 @@ namespace bgfx
 				return;
 			}
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::UpdateTexture);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::UpdateTexture);
 			cmdbuf.write(_handle);
 			cmdbuf.write(_side);
 			cmdbuf.write(_mip);
@@ -4783,7 +4861,7 @@ namespace bgfx
 
 			if (isValid(handle) )
 			{
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateFrameBuffer);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateFrameBuffer);
 				cmdbuf.write(handle);
 				cmdbuf.write(false);
 				cmdbuf.write(_num);
@@ -4831,7 +4909,7 @@ namespace bgfx
 
 			if (isValid(handle) )
 			{
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateFrameBuffer);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::CreateFrameBuffer);
 				cmdbuf.write(handle);
 				cmdbuf.write(true);
 				cmdbuf.write(_nwh);
@@ -4886,7 +4964,7 @@ namespace bgfx
 			bool ok = m_submit->free(_handle); BX_UNUSED(ok);
 			BX_ASSERT(ok, "Frame buffer handle %d is already destroyed!", _handle.idx);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyFrameBuffer);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyFrameBuffer);
 			cmdbuf.write(_handle);
 
 			FrameBufferRef& fbr = m_frameBufferRef[_handle.idx];
@@ -4943,7 +5021,7 @@ namespace bgfx
 
 					BX_TRACE("  Resize uniform (handle %3d) `%s`, num %d", handle.idx, _name, _num);
 
-					CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateUniform);
+					auto cmdbuf = getCommandBuffer(CommandBuffer::CreateUniform);
 					cmdbuf.write(handle);
 					cmdbuf.write(uniform.m_type);
 					cmdbuf.write(uniform.m_num);
@@ -4975,7 +5053,7 @@ namespace bgfx
 			bool ok = m_uniformHashMap.insert(bx::hash<bx::HashMurmur2A>(_name), handle.idx);
 			BX_ASSERT(ok, "Uniform already exists (name: %s)!", _name); BX_UNUSED(ok);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateUniform);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::CreateUniform);
 			cmdbuf.write(handle);
 			cmdbuf.write(_type);
 			cmdbuf.write(_num);
@@ -5016,7 +5094,7 @@ namespace bgfx
 				uniform.m_name.clear();
 				m_uniformHashMap.removeByHandle(_handle.idx);
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyUniform);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyUniform);
 				cmdbuf.write(_handle);
 			}
 		}
@@ -5030,7 +5108,7 @@ namespace bgfx
 			{
 				m_submit->m_occlusion[handle.idx] = INT32_MIN;
 
-				CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::InvalidateOcclusionQuery);
+				auto cmdbuf = getCommandBuffer(CommandBuffer::InvalidateOcclusionQuery);
 				cmdbuf.write(handle);
 			}
 
@@ -5120,7 +5198,7 @@ namespace bgfx
 		{
 			BGFX_MUTEX_SCOPE(m_resourceApiLock);
 
-			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::UpdateViewName);
+			auto cmdbuf = getCommandBuffer(CommandBuffer::UpdateViewName);
 			cmdbuf.write(_id);
 			cmdbuf.write(_name);
 		}
