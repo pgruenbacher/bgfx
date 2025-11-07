@@ -1979,9 +1979,12 @@ namespace bgfx
 		}
 
 		m_vertexLayoutRef.init();
-
-		CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::RendererInit);
-		cmdbuf.write(_init);
+		{
+			BGFX_MUTEX_SCOPE(m_resourceApiLock);
+			BX_ASSERT(m_resourceApiLock.isLocked(), "isLocked");
+			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::RendererInit);
+			cmdbuf.write(_init);
+		}
 
 		frameNoRenderWait();
 

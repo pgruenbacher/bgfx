@@ -3348,6 +3348,8 @@ namespace bgfx
 				cmdbuf.write(_flags);
 
 				setDebugNameForHandle(handle);
+
+				validateCmdBuffer(cmdbuf);
 			}
 			else
 			{
@@ -3382,6 +3384,8 @@ namespace bgfx
 
 			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyIndexBuffer);
 			cmdbuf.write(_handle);
+
+			validateCmdBuffer(cmdbuf);
 		}
 
 		VertexLayoutHandle findOrCreateVertexLayout(const VertexLayout& _layout, bool _refCountOnCreation = false)
@@ -3403,6 +3407,8 @@ namespace bgfx
 			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::CreateVertexLayout);
 			cmdbuf.write(layoutHandle);
 			cmdbuf.write(_layout);
+
+			validateCmdBuffer(cmdbuf);
 
 			if (_refCountOnCreation)
 			{
@@ -3466,6 +3472,8 @@ namespace bgfx
 
 				setDebugNameForHandle(handle);
 
+				validateCmdBuffer(cmdbuf);
+
 				return handle;
 			}
 
@@ -3500,6 +3508,8 @@ namespace bgfx
 
 			CommandBuffer& cmdbuf = getCommandBuffer(CommandBuffer::DestroyVertexBuffer);
 			cmdbuf.write(_handle);
+
+			validateCmdBuffer(cmdbuf);
 		}
 
 		void destroyVertexBufferInternal(VertexBufferHandle _handle)
@@ -3536,6 +3546,8 @@ namespace bgfx
 				cmdbuf.write(indexBufferHandle);
 				cmdbuf.write(allocSize);
 				cmdbuf.write(_flags);
+
+				validateCmdBuffer(cmdbuf);
 
 				m_dynIndexBufferAllocator.add(uint64_t(indexBufferHandle.idx) << 32, allocSize);
 				ptr = m_dynIndexBufferAllocator.alloc(_size);
