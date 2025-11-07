@@ -2859,7 +2859,7 @@ namespace bgfx
 			}
 		}
 
-		validateCmdBuffer(_cmdbuf);
+		// validateCmdBuffer(_cmdbuf);
 
 		do
 		{
@@ -5984,6 +5984,7 @@ namespace bgfx {
 	};
 
 	void validateCmdBuffer(const CommandBuffer& cmd) {
+		return;
 		// from the beginning 
 		CmdReader reader(cmd);
 

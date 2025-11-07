@@ -3175,6 +3175,9 @@ namespace bgfx
 
 		CommandBuffer& getCommandBuffer(CommandBuffer::Enum _cmd)
 		{
+
+			BGFX_MUTEX_SCOPE(m_resourceApiLock); // trigger deadlock if invalid access of command buffer writing?
+
 			CommandBuffer& cmdbuf = _cmd < CommandBuffer::End ? m_submit->m_cmdPre : m_submit->m_cmdPost;
 			validateCmdBuffer(cmdbuf);
 			uint8_t cmd = (uint8_t)_cmd;
