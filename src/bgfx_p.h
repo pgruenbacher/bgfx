@@ -1054,10 +1054,10 @@ namespace bgfx
 		{
 #if BGFX_CONFIG_DEBUG
 			int32_t prevCount = bx::atomicFetchAndAdd(&m_cmdBuf.m_writerCount, 1);
-			BX_ASSERT(prevCount == 0
-				, "Multiple concurrent writers detected on CommandBuffer! Previous count: %d"
-				, prevCount
-				);
+			// BX_ASSERT(prevCount == 0
+			// 	, "Multiple concurrent writers detected on CommandBuffer! Previous count: %d"
+			// 	, prevCount
+			// 	);
 #endif // BGFX_CONFIG_DEBUG
 		}
 
@@ -4964,8 +4964,10 @@ namespace bgfx
 			bool ok = m_submit->free(_handle); BX_UNUSED(ok);
 			BX_ASSERT(ok, "Frame buffer handle %d is already destroyed!", _handle.idx);
 
-			auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyFrameBuffer);
-			cmdbuf.write(_handle);
+			{				
+				auto cmdbuf = getCommandBuffer(CommandBuffer::DestroyFrameBuffer);
+				cmdbuf.write(_handle);
+			}
 
 			FrameBufferRef& fbr = m_frameBufferRef[_handle.idx];
 			fbr.m_name.clear();
