@@ -6033,45 +6033,25 @@ VK_DESTROY
 			);
 	}
 
-	uint32_t ReadbackVK::readback(VkDeviceMemory _memory, VkDeviceSize _offset, void* _data, uint8_t _mip) const
+	void ReadbackVK::readback(VkDeviceMemory _memory, VkDeviceSize _offset, void* _data, uint8_t _mip) const
 	{
 		BGFX_PROFILER_SCOPE("ReadbackVK::readback", kColorResource);
 
 		if (m_image == VK_NULL_HANDLE)
 		{
-			return 0;
+			return;
 		}
 
-<<<<<<< HEAD
 		const uint32_t mipHeight = bx::uint32_max(1, m_height >> _mip);
 		const uint32_t rowPitch = pitch(_mip);
-=======
-		uint32_t mipHeight = bx::uint32_max(1, m_height >> _mip);
-		// for texture arrays we iterate over each layer as well.
-		mipHeight *= bx::uint32_max(1, m_numLayers);
-
-		uint32_t rowPitch = pitch(_mip);
->>>>>>> a4f76a79e... add in numLayers to ReadBackVK utility class so that it properly copies texture arrays when called by bgfx::readTexture.
 
 		const uint8_t* src;
 		VK_CHECK(vkMapMemory(s_renderVK->m_device, _memory, 0, VK_WHOLE_SIZE, 0, (void**)&src) );
 		src += _offset;
 
-<<<<<<< HEAD
 		bx::gather(_data, src, rowPitch, rowPitch, mipHeight);
-=======
-		uint32_t memRead = 0;
-		for (uint32_t yy = 0; yy < mipHeight; ++yy)
-		{
-			bx::memCopy(dst, src, rowPitch);
-			src += rowPitch;
-			dst += rowPitch;
-			memRead += rowPitch;
-		}
->>>>>>> a4f76a79e... add in numLayers to ReadBackVK utility class so that it properly copies texture arrays when called by bgfx::readTexture.
 
 		vkUnmapMemory(s_renderVK->m_device, _memory);
-		return memRead;
 	}
 
 	VkResult TextureVK::create(VkCommandBuffer _commandBuffer, uint32_t _width, uint32_t _height, uint64_t _flags, VkFormat _format)
